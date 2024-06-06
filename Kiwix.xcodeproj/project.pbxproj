@@ -29,6 +29,18 @@
 		020061792C11205900575E13 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061782C11205900575E13 /* Word.swift */; };
 		0200617B2C11208F00575E13 /* Synonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200617A2C11208F00575E13 /* Synonym.swift */; };
 		021CF2252C11255500A884DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CF2242C11255500A884DE /* NetworkManager.swift */; };
+		02A581FE2C11AE43004E06F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A581FD2C11AE43004E06F1 /* ViewController.swift */; };
+		02A582002C11C341004E06F1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A581FF2C11C341004E06F1 /* LoadingView.swift */; };
+		02A582022C11C371004E06F1 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A582012C11C371004E06F1 /* LoadingShowable.swift */; };
+		02A582062C11C3AC004E06F1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A582042C11C3AC004E06F1 /* OnboardingViewController.swift */; };
+		02A582072C11C3AC004E06F1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A582052C11C3AC004E06F1 /* OnboardingViewController.xib */; };
+		02A582112C11CCFE004E06F1 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A582102C11CCFE004E06F1 /* OnboardingPresenter.swift */; };
+		02A582132C11CD08004E06F1 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A582122C11CD08004E06F1 /* OnboardingRouter.swift */; };
+		02A582232C11D216004E06F1 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02A582152C11D216004E06F1 /* LICENSE.txt */; };
+		02A582242C11D216004E06F1 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A582162C11D216004E06F1 /* Roboto-Black.ttf */; };
+		02A582262C11D216004E06F1 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A582182C11D216004E06F1 /* Roboto-Bold.ttf */; };
+		02A5822B2C11D216004E06F1 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A5821D2C11D216004E06F1 /* Roboto-Medium.ttf */; };
+		02A5822D2C11D216004E06F1 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A5821F2C11D216004E06F1 /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +87,18 @@
 		020061782C11205900575E13 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		0200617A2C11208F00575E13 /* Synonym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synonym.swift; sourceTree = "<group>"; };
 		021CF2242C11255500A884DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		02A581FD2C11AE43004E06F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02A581FF2C11C341004E06F1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		02A582012C11C371004E06F1 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
+		02A582042C11C3AC004E06F1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		02A582052C11C3AC004E06F1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		02A582102C11CCFE004E06F1 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		02A582122C11CD08004E06F1 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		02A582152C11D216004E06F1 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		02A582162C11D216004E06F1 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		02A582182C11D216004E06F1 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		02A5821D2C11D216004E06F1 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		02A5821F2C11D216004E06F1 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +151,10 @@
 			children = (
 				0200615B2C11142800575E13 /* Supporting Files */,
 				0200615A2C11141F00575E13 /* Storyboards */,
+				02A582142C11D1F0004E06F1 /* Theme */,
 				0200615F2C11147B00575E13 /* Extensions */,
 				0200615C2C11145F00575E13 /* NetworkManager */,
 				0200615E2C11146900575E13 /* Screens */,
-				020061332C11141A00575E13 /* Assets.xcassets */,
 				020061382C11141A00575E13 /* Info.plist */,
 				020061302C11141A00575E13 /* Kiwix.xcdatamodeld */,
 			);
@@ -193,8 +217,10 @@
 			isa = PBXGroup;
 			children = (
 				0200615D2C11146500575E13 /* Entity */,
+				02A582032C11C395004E06F1 /* Onboarding */,
 				020061602C11148B00575E13 /* Home */,
 				020061612C11148D00575E13 /* Detail */,
+				02A581FD2C11AE43004E06F1 /* ViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -202,6 +228,8 @@
 		0200615F2C11147B00575E13 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				02A581FF2C11C341004E06F1 /* LoadingView.swift */,
+				02A582012C11C371004E06F1 /* LoadingShowable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +256,38 @@
 				020061762C11151900575E13 /* DetailRouter.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		02A582032C11C395004E06F1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				02A582042C11C3AC004E06F1 /* OnboardingViewController.swift */,
+				02A582052C11C3AC004E06F1 /* OnboardingViewController.xib */,
+				02A582102C11CCFE004E06F1 /* OnboardingPresenter.swift */,
+				02A582122C11CD08004E06F1 /* OnboardingRouter.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		02A582142C11D1F0004E06F1 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				02A582222C11D216004E06F1 /* Roboto 2 */,
+				020061332C11141A00575E13 /* Assets.xcassets */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		02A582222C11D216004E06F1 /* Roboto 2 */ = {
+			isa = PBXGroup;
+			children = (
+				02A582152C11D216004E06F1 /* LICENSE.txt */,
+				02A582162C11D216004E06F1 /* Roboto-Black.ttf */,
+				02A582182C11D216004E06F1 /* Roboto-Bold.ttf */,
+				02A5821D2C11D216004E06F1 /* Roboto-Medium.ttf */,
+				02A5821F2C11D216004E06F1 /* Roboto-Regular.ttf */,
+			);
+			path = "Roboto 2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,9 +396,15 @@
 			files = (
 				020061342C11141A00575E13 /* Assets.xcassets in Resources */,
 				020061372C11141A00575E13 /* Base in Resources */,
+				02A5822B2C11D216004E06F1 /* Roboto-Medium.ttf in Resources */,
+				02A582262C11D216004E06F1 /* Roboto-Bold.ttf in Resources */,
 				020061712C1114F900575E13 /* DetailViewController.xib in Resources */,
+				02A582242C11D216004E06F1 /* Roboto-Black.ttf in Resources */,
 				0200612F2C11141A00575E13 /* Base in Resources */,
 				020061662C1114AA00575E13 /* HomeViewController.xib in Resources */,
+				02A5822D2C11D216004E06F1 /* Roboto-Regular.ttf in Resources */,
+				02A582072C11C3AC004E06F1 /* OnboardingViewController.xib in Resources */,
+				02A582232C11D216004E06F1 /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,11 +429,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A582112C11CCFE004E06F1 /* OnboardingPresenter.swift in Sources */,
+				02A581FE2C11AE43004E06F1 /* ViewController.swift in Sources */,
 				020061652C1114AA00575E13 /* HomeViewController.swift in Sources */,
 				020061772C11151900575E13 /* DetailRouter.swift in Sources */,
 				020061282C11141A00575E13 /* AppDelegate.swift in Sources */,
+				02A582132C11CD08004E06F1 /* OnboardingRouter.swift in Sources */,
 				0200616D2C1114EC00575E13 /* HomeRouter.swift in Sources */,
+				02A582002C11C341004E06F1 /* LoadingView.swift in Sources */,
 				020061752C11151000575E13 /* DetailPresenter.swift in Sources */,
+				02A582062C11C3AC004E06F1 /* OnboardingViewController.swift in Sources */,
 				020061732C11150600575E13 /* DetailInteractor.swift in Sources */,
 				020061322C11141A00575E13 /* Kiwix.xcdatamodeld in Sources */,
 				020061792C11205900575E13 /* Word.swift in Sources */,
@@ -375,6 +446,7 @@
 				020061682C1114BF00575E13 /* HomeInteractor.swift in Sources */,
 				021CF2252C11255500A884DE /* NetworkManager.swift in Sources */,
 				0200612A2C11141A00575E13 /* SceneDelegate.swift in Sources */,
+				02A582022C11C371004E06F1 /* LoadingShowable.swift in Sources */,
 				0200617B2C11208F00575E13 /* Synonym.swift in Sources */,
 				020061702C1114F900575E13 /* DetailViewController.swift in Sources */,
 			);
@@ -566,6 +638,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -594,6 +667,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
