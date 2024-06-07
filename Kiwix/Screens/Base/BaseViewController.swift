@@ -1,17 +1,17 @@
 //
-//  ViewController.swift
-//  TGY2024-SocialApp
+//  BaseViewController.swift
+//  Kiwix
 //
-//  Created by Kerim Çağlar on 31.05.2024.
+//  Created by FFK on 6.06.2024.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class BaseViewController: UIViewController, LoadingShowable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 }
-

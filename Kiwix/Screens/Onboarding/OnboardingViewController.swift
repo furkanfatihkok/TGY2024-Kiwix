@@ -11,7 +11,7 @@ protocol OnboardingViewControllerProtocol: AnyObject {
     
 }
 
-final class OnboardingViewController: UIViewController, OnboardingViewControllerProtocol {
+final class OnboardingViewController: BaseViewController, OnboardingViewControllerProtocol {
     
     var presenter: OnboardingPresenter?
     

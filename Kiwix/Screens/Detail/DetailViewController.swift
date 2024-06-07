@@ -15,9 +15,10 @@ final class DetailViewController: UIViewController {
 
     var presenter: DetailPresenter?
     
+    var words: [Word] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(words)
     }
 
 }

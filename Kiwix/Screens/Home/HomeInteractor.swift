@@ -7,12 +7,14 @@
 
 import Foundation
 
+typealias WordResult = Result<[Word],APIError>
+
 protocol HomeInteractorProtocol {
-    
+    func fetchWords(for word: String)
 }
 
 protocol HomeInteractorOutputProtocol {
-    
+    func fetchWordsOutput(result: WordResult)
 }
 
 final class HomeInteractor {
@@ -20,5 +22,12 @@ final class HomeInteractor {
 }
 
 extension HomeInteractor: HomeInteractorProtocol {
+    
+    func fetchWords(for word: String) {
+        NetworkManager.shared.fetchWord(for: word) { [weak self] result in
+            guard let self else { return }
+            self.output?.fetchWordsOutput(result: result)
+        }
+    }
     
 }

@@ -8,22 +8,22 @@
 import Foundation
 
 struct Word: Decodable {
-    let word: String
-    let phonetics: [Phonetics]
-    let meanings: [Meanings]
+    let word: String?
+    let phonetics: [Phonetics]?
+    let meanings: [Meanings]?
 }
 
 struct Phonetics: Decodable {
-    let text: String
+    let text: String?
     let audio: String?
 }
 
 struct Meanings: Decodable {
-    let partOfSpeech: String
-    let definations: [Defination]
+    let partOfSpeech: String?
+    let definations: [Defination]?
 }
 
 struct Defination: Decodable {
-    let definition: String
+    let definition: String?
     let example: String?
 }
