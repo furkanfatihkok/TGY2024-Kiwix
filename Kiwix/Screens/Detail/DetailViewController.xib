@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Kiwix" customModuleProvider="target">
             <connections>
                 <outlet property="headerView" destination="zDc-H5-jsV" id="Cxx-cQ-BFi"/>
+                <outlet property="tableView" destination="PZN-tF-JxO" id="7aq-dO-WF7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -56,20 +57,32 @@
                     <rect key="frame" x="0.0" y="106" width="393" height="199"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PZN-tF-JxO">
+                    <rect key="frame" x="16" y="305" width="361" height="505"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="M5U-rZ-zWX"/>
+                        <outlet property="delegate" destination="-1" id="66A-9w-EIz"/>
+                    </connections>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="PZN-tF-JxO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="0hc-TE-dFl"/>
                 <constraint firstItem="zDc-H5-jsV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="2hz-7R-2sC"/>
                 <constraint firstItem="S2b-M4-64d" firstAttribute="leading" secondItem="hhB-6f-Zxt" secondAttribute="trailing" id="5jc-eg-kEF"/>
                 <constraint firstItem="0vw-nA-ojD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7rg-dh-2uA"/>
                 <constraint firstItem="zDc-H5-jsV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.233568" id="8mS-Xd-Zg4"/>
                 <constraint firstItem="zDc-H5-jsV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9vu-WQ-pb4"/>
                 <constraint firstItem="lQV-ur-To0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="A2O-n5-LdK"/>
+                <constraint firstItem="PZN-tF-JxO" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.592723" id="Fam-fE-lvZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lQV-ur-To0" secondAttribute="trailing" constant="8" id="LNM-eA-8SR"/>
                 <constraint firstItem="S2b-M4-64d" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PXo-GQ-rah"/>
                 <constraint firstItem="hhB-6f-Zxt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SnU-jM-jL8"/>
                 <constraint firstItem="hhB-6f-Zxt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Uwe-S8-Wg8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PZN-tF-JxO" secondAttribute="trailing" constant="16" id="fNH-q1-1RU"/>
+                <constraint firstItem="PZN-tF-JxO" firstAttribute="top" secondItem="zDc-H5-jsV" secondAttribute="bottom" id="gBO-eU-2mf"/>
                 <constraint firstItem="zDc-H5-jsV" firstAttribute="top" secondItem="0vw-nA-ojD" secondAttribute="bottom" id="jXe-NA-BOg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0vw-nA-ojD" secondAttribute="trailing" id="sUj-Ix-FCl"/>
                 <constraint firstItem="0vw-nA-ojD" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.00234742" id="uq7-4X-BP7"/>
@@ -92,7 +105,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
