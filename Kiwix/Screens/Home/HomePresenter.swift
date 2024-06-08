@@ -20,7 +20,8 @@ final class HomePresenter {
     unowned var view: HomeViewControllerProtocol!
     let interactor: HomeInteractorProtocol
     let router: HomeRouterProtocol
-    
+
+    private var noResultCellPresenter: NoResultCellPresenterProtocol?
     private var words = [Word]()
     
     init(view: HomeViewControllerProtocol!, interactor: HomeInteractorProtocol, router: HomeRouterProtocol) {
@@ -40,6 +41,7 @@ extension HomePresenter: HomePresenterProtocol {
         if let viewController = view as? UIViewController {
             viewController.navigationController?.isNavigationBarHidden = true
         }
+        noResultCellPresenter?.loadDefault()
         view.setupTableView()
         fetchSavedWords()
     }
@@ -72,19 +74,18 @@ extension HomePresenter: HomeInteractorOutputProtocol {
         case .success(let words):
             if words.isEmpty {
                 DispatchQueue.main.async {
-                    self.view.showNoResultView()
+                    self.noResultCellPresenter?.loadNoResult()
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.view.hideNoResultView()
                     CoreDataManager.shared.saveWord(word: words.first?.word ?? "")
                     self.fetchSavedWords()
                     self.router.navigate(to: .detail(words: words))
                 }
             }
-        case .failure(let error):
+        case .failure( _):
             DispatchQueue.main.async {
-                self.view?.showNoResultView()
+                self.noResultCellPresenter?.loadNoResult()
             }
         }
     }

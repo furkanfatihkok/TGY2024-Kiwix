@@ -15,10 +15,11 @@ protocol HomeViewControllerProtocol: AnyObject {
     func setSearchTextField()
     func setRearLogo()
     func resetToDefault()
-    func showNoResultView()
-    func hideNoResultView()
     func displaySavedWords(_ words: [String])
 }
+
+// TODO: searchbutton klavye üstüne çıkmasını sağla
+// TODO: EmptyView'a bak
 
 final class HomeViewController: BaseViewController {
     
@@ -26,13 +27,14 @@ final class HomeViewController: BaseViewController {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var rearLogo: UIImageView!
+    @IBOutlet weak var searchButton: UIButton!
     
     @IBOutlet weak var noResultCell: NoResultCell!
     
     @IBOutlet weak var tableView: UITableView!
     
     var recentSearches: [String] = []
-    
+     
     var presenter: HomePresenterProtocol!
     
     override func viewDidLoad() {
@@ -41,7 +43,6 @@ final class HomeViewController: BaseViewController {
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        
         guard let searchText = searchTextField.text, !searchText.isEmpty else { return }
         presenter.searchButtonTapped(with: searchText)
     }
@@ -53,14 +54,15 @@ final class HomeViewController: BaseViewController {
     @IBAction func rightButton(_ sender: UIButton) {
         presenter?.rightButtonAction()
     }
+    
 }
 
 // MARK: - HomeView Protocol
 
 extension HomeViewController: HomeViewControllerProtocol {
-    
+
     func setupTableView() {
-        tableView.register(UINib(nibName: RecentsCell.identifier, bundle: nil), forCellReuseIdentifier: RecentsCell.identifier)
+        tableView.register(UINib(nibName: TableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
         tableView.separatorStyle = .none
     }
     
@@ -94,14 +96,6 @@ extension HomeViewController: HomeViewControllerProtocol {
         rearLogo.isHidden = false
     }
     
-    func showNoResultView() {
-        noResultCell.isHidden = false
-    }
-    
-    func hideNoResultView() {
-        noResultCell.isHidden = true
-    }
-    
     func displaySavedWords(_ words: [String]) {
         recentSearches = words
         reloadData()
@@ -114,11 +108,11 @@ extension HomeViewController: HomeViewControllerProtocol {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recentSearches.count
+        5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RecentsCell.identifier, for: indexPath) as! RecentsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
         cell.textLabel?.text = recentSearches[indexPath.row]
         cell.selectionStyle = .none
         return cell

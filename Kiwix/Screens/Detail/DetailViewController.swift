@@ -15,12 +15,15 @@ final class DetailViewController: UIViewController {
 
     var presenter: DetailPresenter?
     
+    @IBOutlet weak var headerView: HeaderView!
+    
     var words: [Word] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         print(words)
+        let presenter = HeaderViewPresenter(view: headerView)
+        headerView.presenter = presenter
     }
-
 }
 
 extension DetailViewController: DetailViewControllerProtocol {

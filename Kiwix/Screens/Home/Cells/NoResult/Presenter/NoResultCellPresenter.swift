@@ -8,7 +8,8 @@
 import Foundation
 
 protocol NoResultCellPresenterProtocol {
-    func load()
+    func loadDefault()
+    func loadNoResult()
 }
 
 final class NoResultCellPresenter {
@@ -22,9 +23,14 @@ final class NoResultCellPresenter {
 
 extension NoResultCellPresenter: NoResultCellPresenterProtocol {
     
-    func load() {
+    func loadDefault() {
+        view?.setNoResult("Welcome to Kiwix")
+        view?.setDescriptionLabel("Dictionary App")
+    }
+    
+    func loadNoResult() {
         view?.setNoResult("No Result Found")
-        view?.setDescriptionLabel("Discover other words")
+        view?.setDescriptionLabel("Try another search term.")
     }
     
 }
