@@ -12,23 +12,16 @@ protocol HeaderViewProtocol: AnyObject {
     func setPhonteticLabel(_ phontetic: String)
     func setVoiceButton(_ systemName: UIImage)
     func setPlayButton(_ systemName: UIImage)
-    func setXmarkButton(isHidden: Bool)
-    func setNounButton(title: String, borderColor: UIColor)
-    func setVerbButton(isHidden: Bool, borderColor: UIColor)
-    func setAdjectiveButton(isHidden: Bool, borderColor: UIColor)
 }
 
 final class HeaderView: UIView {
+    
+    static let identifier = "HeaderView"
     
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var phonteticLabel: UILabel!
     @IBOutlet weak var voiceButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
-    
-    @IBOutlet weak var xmarkButton: UIButton!
-    @IBOutlet weak var nounButton: UIButton!
-    @IBOutlet weak var verbButton: UIButton!
-    @IBOutlet weak var adjectiveButton: UIButton!
     
     var presenter: HeaderViewPresenterProtocol?
     
@@ -57,22 +50,6 @@ final class HeaderView: UIView {
     @IBAction func audioButton(_ sender: UIButton) {
         presenter?.audioButtonTapped()
     }
-    
-    @IBAction func xmarkButtonAction(_ sender: UIButton) {
-        presenter?.xmarkButtonTapped()
-    }
-    
-    @IBAction func nounButtonAction(_ sender: UIButton) {
-        presenter?.nounButtonTapped()
-    }
-    
-    @IBAction func verbButtonAction(_ sender: UIButton) {
-        presenter?.verbButtonTapped()
-    }
-    
-    @IBAction func adjectiveButtonAction(_ sender: UIButton) {
-        presenter?.adjectiveButtonTapped()
-    }
 }
 
 extension HeaderView: HeaderViewProtocol {
@@ -91,25 +68,6 @@ extension HeaderView: HeaderViewProtocol {
     
     func setPlayButton(_ systemName: UIImage) {
         playButton.setImage(systemName, for: .normal)
-    }
-    
-    func setXmarkButton(isHidden: Bool) {
-        xmarkButton.isHidden = isHidden
-    }
-    
-    func setNounButton(title: String, borderColor: UIColor) {
-        nounButton.setTitle(title, for: .normal)
-        nounButton.layer.borderColor = borderColor.cgColor
-    }
-    
-    func setVerbButton(isHidden: Bool, borderColor: UIColor) {
-        verbButton.isHidden = isHidden
-        verbButton.layer.borderColor = borderColor.cgColor
-    }
-    
-    func setAdjectiveButton(isHidden: Bool, borderColor: UIColor) {
-        adjectiveButton.isHidden = isHidden
-        adjectiveButton.layer.borderColor = borderColor.cgColor
     }
     
 }

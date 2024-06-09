@@ -20,6 +20,8 @@ protocol HomeViewControllerProtocol: AnyObject {
 
 // TODO: searchbutton klavye üstüne çıkmasını sağla
 // TODO: EmptyView'a bak
+// TODO: DETAY SAYFASINA GEÇİŞ SAĞLA.
+// TODO: Search button' tıklandığına emptTextField ise popup çıkar
 
 final class HomeViewController: BaseViewController {
     
@@ -40,6 +42,7 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
@@ -63,7 +66,7 @@ extension HomeViewController: HomeViewControllerProtocol {
 
     func setupTableView() {
         tableView.register(UINib(nibName: TableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .none //TODO: Storboard'Da yap
     }
     
     func reloadData() {
@@ -108,18 +111,24 @@ extension HomeViewController: HomeViewControllerProtocol {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        if recentSearches.count <= 5 {
+            return recentSearches.count
+        }
+        return 5
+        //TODO: presenter
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
         cell.textLabel?.text = recentSearches[indexPath.row]
-        cell.selectionStyle = .none
+        cell.selectionStyle = .none //TODO: Storyboard'da yap
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Recents 5 "
+        return "Recents \(recentSearches.count) "
+        //TODO: dinamik hale getir.
+        //TODO: customHeader oluştur.
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
