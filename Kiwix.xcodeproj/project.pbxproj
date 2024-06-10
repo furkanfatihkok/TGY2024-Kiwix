@@ -46,6 +46,8 @@
 		0298D4182C15E61A00A054A8 /* CustomSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D4172C15E61A00A054A8 /* CustomSection.xib */; };
 		0298D41B2C15E7A900A054A8 /* SectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41A2C15E7A900A054A8 /* SectionPresenter.swift */; };
 		0298D41D2C15F1A100A054A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D41C2C15F1A100A054A8 /* HeaderView.xib */; };
+		0298D4212C16698800A054A8 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41F2C16698800A054A8 /* ButtonCell.swift */; };
+		0298D4222C16698800A054A8 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D4202C16698800A054A8 /* ButtonCell.xib */; };
 		02A581FE2C11AE43004E06F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A581FD2C11AE43004E06F1 /* ViewController.swift */; };
 		02A582002C11C341004E06F1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A581FF2C11C341004E06F1 /* LoadingView.swift */; };
 		02A582022C11C371004E06F1 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A582012C11C371004E06F1 /* LoadingShowable.swift */; };
@@ -121,6 +123,8 @@
 		0298D4172C15E61A00A054A8 /* CustomSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSection.xib; sourceTree = "<group>"; };
 		0298D41A2C15E7A900A054A8 /* SectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPresenter.swift; sourceTree = "<group>"; };
 		0298D41C2C15F1A100A054A8 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		0298D41F2C16698800A054A8 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		0298D4202C16698800A054A8 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		02A581FD2C11AE43004E06F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02A581FF2C11C341004E06F1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		02A582012C11C371004E06F1 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 		025D782D2C145458005C6832 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0298D41E2C16696000A054A8 /* ButtonCell */,
 				020828CE2C1481AE002FC12E /* HeaderView */,
 				0298D4142C15E2A500A054A8 /* CustomSection */,
 				0298D40C2C15DBF500A054A8 /* WordCell */,
@@ -401,6 +406,23 @@
 			isa = PBXGroup;
 			children = (
 				0298D41A2C15E7A900A054A8 /* SectionPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0298D41E2C16696000A054A8 /* ButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				0298D41F2C16698800A054A8 /* ButtonCell.swift */,
+				0298D4202C16698800A054A8 /* ButtonCell.xib */,
+				0298D4232C16698F00A054A8 /* Presenter */,
+			);
+			path = ButtonCell;
+			sourceTree = "<group>";
+		};
+		0298D4232C16698F00A054A8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -561,6 +583,7 @@
 				0206BED02C11F8F400381186 /* NoResultCell.xib in Resources */,
 				02A582232C11D216004E06F1 /* LICENSE.txt in Resources */,
 				0206BEC82C11D57400381186 /* HomeViewController.xib in Resources */,
+				0298D4222C16698800A054A8 /* ButtonCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +616,7 @@
 				020061282C11141A00575E13 /* AppDelegate.swift in Sources */,
 				02A582132C11CD08004E06F1 /* OnboardingRouter.swift in Sources */,
 				0206BECB2C11E58F00381186 /* BaseViewController.swift in Sources */,
+				0298D4212C16698800A054A8 /* ButtonCell.swift in Sources */,
 				0200616D2C1114EC00575E13 /* HomeRouter.swift in Sources */,
 				0206BECE2C11F8EC00381186 /* NoResultCell.swift in Sources */,
 				02A582002C11C341004E06F1 /* LoadingView.swift in Sources */,
