@@ -15,19 +15,24 @@ final class WordCellPresenter {
     
     weak var view: WordCellProtocol!
     
-    private var words: [Word]
+    private var definition: Definition
     
-    init(view: WordCellProtocol!, words: [Word]) {
+    init(view: WordCellProtocol, definition: Definition) {
         self.view = view
-        self.words = words
+        self.definition = definition
     }
 }
 
 extension WordCellPresenter: WordCellPresenterProtocol {
     func load() {
-        //TODO: dinamikleştir entity'e göre
+        view?.setDefinationLabel(definition.definition ?? "")
         
-        view.setDefinationLabel("organic structure composition.")
-        view.setDefinationLabel("the organization of this painting is quite remarkable.")
+        if let example = definition.example, !example.isEmpty {
+            view?.setExampleLabel(example)
+            view?.showExampleStackView(true)
+        } else {
+            view?.setExampleLabel("")
+            view?.showExampleStackView(false)
+        }
     }
 }

@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol CustomSectionHeaderProtocol: AnyObject {
+    func setNumberLabel(_ text: String)
+    func setPartOfSpeechLabel(_ text: String)
+}
+
 final class CustomSectionHeader: UITableViewHeaderFooterView {
 
     static let identifier = "CustomSectionHeader"
@@ -14,4 +19,16 @@ final class CustomSectionHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var partOfSpeechLabel: UILabel!
 
+}
+
+extension CustomSectionHeader: CustomSectionHeaderProtocol {
+    
+    func setNumberLabel(_ text: String) {
+        numberLabel.text = text
+    }
+    
+    func setPartOfSpeechLabel(_ text: String) {
+        partOfSpeechLabel.text = text
+    }
+    
 }

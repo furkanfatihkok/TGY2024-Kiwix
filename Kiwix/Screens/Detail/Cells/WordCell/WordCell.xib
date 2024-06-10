@@ -21,29 +21,29 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-do-snc">
                         <rect key="frame" x="4" y="4" width="6" height="6"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="InP-m0-MlK" userLabel="vStack">
-                                <rect key="frame" x="16" y="-4" width="304" height="36.333333333333336"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="InP-m0-MlK" userLabel="vStack">
+                                <rect key="frame" x="16" y="-4" width="295.66666666666669" height="38"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="organic structure composition." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMt-AT-KdO">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="16.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="organic structure composition." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMt-AT-KdO">
+                                        <rect key="frame" x="0.0" y="0.0" width="295.66666666666669" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dQo-oV-41D" userLabel="hStack">
-                                        <rect key="frame" x="0.0" y="16.333333333333332" width="304" height="19.999999999999996"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dQo-oV-41D" userLabel="hStack">
+                                        <rect key="frame" x="0.0" y="23" width="295.66666666666669" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNB-sW-aJS" userLabel="labelView">
-                                                <rect key="frame" x="0.0" y="0.0" width="2" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="2" height="15"/>
                                                 <color key="backgroundColor" name="background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="2" id="D3Q-Os-faR"/>
-                                                    <constraint firstAttribute="height" constant="20" id="gYn-qI-yuZ"/>
+                                                    <constraint firstAttribute="height" constant="15" id="gYn-qI-yuZ"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the organization of this painting is quite remarkable." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6k0-Kv-4pe">
-                                                <rect key="frame" x="10" y="0.0" width="294" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="6" y="0.0" width="289.66666666666669" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -73,6 +73,7 @@
             <connections>
                 <outlet property="definationLabel" destination="CMt-AT-KdO" id="kgT-xV-QWO"/>
                 <outlet property="exampleLabel" destination="6k0-Kv-4pe" id="JpW-I9-giz"/>
+                <outlet property="exampleStackView" destination="dQo-oV-41D" id="dgp-DH-2qi"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="19.718309859154932"/>
         </tableViewCell>

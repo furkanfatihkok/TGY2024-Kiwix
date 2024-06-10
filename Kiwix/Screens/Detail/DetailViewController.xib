@@ -14,7 +14,7 @@
             <connections>
                 <outlet property="collectionView" destination="dbM-fZ-do4" id="lyB-GW-p3A"/>
                 <outlet property="headerView" destination="rmb-7e-GFc" id="q72-Ac-eja"/>
-                <outlet property="tableView" destination="8SK-Kx-myA" id="55J-SF-1eU"/>
+                <outlet property="tableView" destination="8SK-Kx-myA" id="wWA-Ry-cF7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -61,8 +61,8 @@
                     <rect key="frame" x="16" y="282" width="361" height="570"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="eAK-dh-D0u"/>
-                        <outlet property="delegate" destination="-1" id="2O9-gU-g4j"/>
+                        <outlet property="dataSource" destination="-1" id="RQi-WL-aeT"/>
+                        <outlet property="delegate" destination="-1" id="3uX-dy-hsE"/>
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmb-7e-GFc" customClass="HeaderView" customModule="Kiwix" customModuleProvider="target">
@@ -130,7 +130,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

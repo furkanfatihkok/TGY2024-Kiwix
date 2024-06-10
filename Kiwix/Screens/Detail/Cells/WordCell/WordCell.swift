@@ -10,6 +10,7 @@ import UIKit
 protocol WordCellProtocol: AnyObject {
     func setDefinationLabel(_ text: String)
     func setExampleLabel(_ text: String)
+    func showExampleStackView(_ show: Bool)
 }
 
 final class WordCell: UITableViewCell {
@@ -18,12 +19,9 @@ final class WordCell: UITableViewCell {
     
     @IBOutlet weak var definationLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
+    @IBOutlet weak var exampleStackView: UIStackView!
     
-    var cellPresenter: WordCellPresenterProtocol! {
-        didSet {
-            cellPresenter.load()
-        }
-    }
+    var cellPresenter: WordCellPresenterProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +32,11 @@ final class WordCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configure(with presenter: WordCellPresenterProtocol) {
+        self.cellPresenter = presenter
+        self.cellPresenter?.load()
     }
     
 }
@@ -48,4 +51,7 @@ extension WordCell: WordCellProtocol {
         exampleLabel.text = text
     }
     
+    func showExampleStackView(_ show: Bool) {
+        exampleStackView.isHidden = !show
+    }
 }

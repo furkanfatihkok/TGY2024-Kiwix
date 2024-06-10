@@ -20,10 +20,10 @@ struct Phonetics: Decodable {
 
 struct Meanings: Decodable {
     let partOfSpeech: String?
-    let definations: [Defination]?
+    let definitions: [Definition]?
 }
 
-struct Defination: Decodable {
+struct Definition: Decodable {
     let definition: String?
     let example: String?
 }

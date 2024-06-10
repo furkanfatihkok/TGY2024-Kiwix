@@ -12,6 +12,9 @@ protocol DetailViewControllerProtocol: AnyObject {
     func registerView()
 }
 
+//TODO: wordCell labelım dğzenle 
+//TODO: headerView PHOTETİC boş gelme durumda hidden yap.
+
 final class DetailViewController: UIViewController {
     
     @IBOutlet weak var headerView: HeaderView!
@@ -55,20 +58,32 @@ extension DetailViewController: DetailViewControllerProtocol {
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        4
+        presenter?.numberOfSections() ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        presenter?.numberOfRows(in: section) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WordCell.identifier, for: indexPath) as! WordCell
+        
+        if let definition = presenter?.definition(at: indexPath) {
+            print("Definition at \(indexPath): \(definition)")
+            let presenter = WordCellPresenter(view: cell, definition: definition)
+            cell.configure(with: presenter)
+        } else {
+            print("Definition not found at \(indexPath)")
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomSectionHeader.identifier) as! CustomSectionHeader
+        if let meaning = presenter?.sectionHeader(for: section) {
+            headerView.setNumberLabel("\(section + 1)")
+            headerView.setPartOfSpeechLabel(meaning.partOfSpeech ?? "")
+        }
         return headerView
     }
     

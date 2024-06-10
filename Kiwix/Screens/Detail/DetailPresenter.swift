@@ -10,11 +10,15 @@ import Foundation
 protocol DetailPresenterProtocol {
     func viewDidLoad()
     func backButtonTapped()
+    func numberOfSections() -> Int
+    func numberOfRows(in section: Int) -> Int
+    func sectionHeader(for section: Int) -> Meanings?
+    func definition(at indexPath: IndexPath) -> Definition?
 }
 
 final class DetailPresenter {
     
-    unowned var view: DetailViewControllerProtocol!
+    weak var view: DetailViewControllerProtocol!
     let interactor: DetailInteractorProtocol
     let router: DetailRouterProtocol
     
@@ -26,6 +30,7 @@ final class DetailPresenter {
         self.router = router
         self.word = word
     }
+    
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
@@ -38,6 +43,23 @@ extension DetailPresenter: DetailPresenterProtocol {
     func backButtonTapped() {
         router.navigateToHomeVC()
     }
+    
+    func numberOfSections() -> Int {
+        word.meanings?.count ?? 0
+    }
+    
+    func numberOfRows(in section: Int) -> Int {
+        word.meanings?[section].definitions?.count ?? 0
+    }
+    
+    func sectionHeader(for section: Int) -> Meanings? {
+        word.meanings?[section]
+    }
+    
+    func definition(at indexPath: IndexPath) -> Definition? {
+        word.meanings?[indexPath.section].definitions?[indexPath.row]
+    }
+    
 }
 
 extension DetailPresenter: DetailInteractorOutputProtocol {

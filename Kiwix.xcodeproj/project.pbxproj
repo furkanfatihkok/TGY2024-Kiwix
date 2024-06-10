@@ -46,7 +46,7 @@
 		0298D4132C15E05100A054A8 /* WordCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D4122C15E05100A054A8 /* WordCellPresenter.swift */; };
 		0298D4162C15E61200A054A8 /* CustomSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D4152C15E61200A054A8 /* CustomSectionHeader.swift */; };
 		0298D4182C15E61A00A054A8 /* CustomSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D4172C15E61A00A054A8 /* CustomSectionHeader.xib */; };
-		0298D41B2C15E7A900A054A8 /* SectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41A2C15E7A900A054A8 /* SectionPresenter.swift */; };
+		0298D41B2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41A2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift */; };
 		0298D41D2C15F1A100A054A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D41C2C15F1A100A054A8 /* HeaderView.xib */; };
 		0298D4212C16698800A054A8 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41F2C16698800A054A8 /* ButtonCell.swift */; };
 		0298D4222C16698800A054A8 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D4202C16698800A054A8 /* ButtonCell.xib */; };
@@ -125,7 +125,7 @@
 		0298D4122C15E05100A054A8 /* WordCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCellPresenter.swift; sourceTree = "<group>"; };
 		0298D4152C15E61200A054A8 /* CustomSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionHeader.swift; sourceTree = "<group>"; };
 		0298D4172C15E61A00A054A8 /* CustomSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSectionHeader.xib; sourceTree = "<group>"; };
-		0298D41A2C15E7A900A054A8 /* SectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPresenter.swift; sourceTree = "<group>"; };
+		0298D41A2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionHeaderPresenter.swift; sourceTree = "<group>"; };
 		0298D41C2C15F1A100A054A8 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		0298D41F2C16698800A054A8 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		0298D4202C16698800A054A8 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
@@ -419,7 +419,7 @@
 		0298D4192C15E79A00A054A8 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				0298D41A2C15E7A900A054A8 /* SectionPresenter.swift */,
+				0298D41A2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -655,7 +655,7 @@
 				0298D4162C15E61200A054A8 /* CustomSectionHeader.swift in Sources */,
 				020061702C1114F900575E13 /* DetailViewController.swift in Sources */,
 				025D78332C1454A2005C6832 /* HeaderViewPresenter.swift in Sources */,
-				0298D41B2C15E7A900A054A8 /* SectionPresenter.swift in Sources */,
+				0298D41B2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift in Sources */,
 				025D782F2C145464005C6832 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

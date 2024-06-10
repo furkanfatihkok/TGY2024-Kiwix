@@ -20,6 +20,7 @@ protocol HomeViewControllerProtocol: AnyObject {
 
 // TODO: searchbutton klavye üstüne çıkmasını sağla
 // TODO: EmptyView'a bak
+// TODO: detailTOhome yaptığımda default'a geri yüklensin.
 
 final class HomeViewController: BaseViewController {
     
