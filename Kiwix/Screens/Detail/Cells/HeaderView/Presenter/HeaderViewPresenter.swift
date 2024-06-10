@@ -6,27 +6,42 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol HeaderViewPresenterProtocol {
     func audioButtonTapped()
+    func setAudioURL(_ url: URL?)
 }
 
 final class HeaderViewPresenter {
     
-    weak var view: HeaderViewProtocol?
-    
-    private var isNounButtonTapped = false
-    private var isVerbButtonTapped = false
+    weak var view: HeaderViewProtocol!
+    private var audioPlayer: AVAudioPlayer?
+    private var audioURL: URL?
     
     init(view: HeaderViewProtocol) {
         self.view = view
     }
+    
+    private func playAudio() {
+        guard let url = audioURL else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing audio: \(error.localizedDescription)")
+        }
+    }
 }
 
 extension HeaderViewPresenter: HeaderViewPresenterProtocol {
-    //TODO: Buttonlar tam işlevsel çalışmıyor buna bak
     func audioButtonTapped() {
-        //TODO: Audio çalma işlemleri burada yapılacak
-        view?.setVoiceButton(UIImage(systemName: "speaker.fill")!)
+        playAudio()
+        view.setVoiceButton(UIImage(systemName: "speaker.fill")!)
+    }
+    
+    func setAudioURL(_ url: URL?) {
+        self.audioURL = url
     }
 }
+

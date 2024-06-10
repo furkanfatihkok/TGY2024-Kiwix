@@ -8,33 +8,45 @@
 import UIKit
 
 protocol DetailViewControllerProtocol: AnyObject {
-    
+    func displayWordDetailsHeader(word: Word)
+    func registerView()
 }
 
 final class DetailViewController: UIViewController {
     
-    var presenter: DetailPresenter?
-    
-    @IBOutlet weak var headetView: HeaderView!
+    @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var words = [Word]()
+    var presenter: DetailPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(words)
-        
-        tableView.register(UINib(nibName: WordCell.identifier, bundle: nil), forCellReuseIdentifier: WordCell.identifier)
-        tableView.register(UINib(nibName: CustomSection.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: CustomSection.identifier)
-        collectionView.register(UINib(nibName: ButtonCell.identifier, bundle: nil), forCellWithReuseIdentifier: ButtonCell.identifier)
+        presenter?.viewDidLoad()
     }
     
+    @IBAction func backButton(_ sender: UIButton) {
+        presenter?.backButtonTapped()
+    }
 }
 
 //MARK: - DetailViewProtocol
 
 extension DetailViewController: DetailViewControllerProtocol {
+    
+    func displayWordDetailsHeader(word: Word) {
+        headerView.setWordLabel(word.word ?? "")
+        
+        if let phonetic = word.phonetics?.first?.text {
+            headerView.setPhonteticLabel("[ \(phonetic) ]")
+        }
+    }
+    
+    func registerView() {
+        tableView.register(UINib(nibName: WordCell.identifier, bundle: nil), forCellReuseIdentifier: WordCell.identifier)
+        tableView.register(UINib(nibName: CustomSectionHeader.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: CustomSectionHeader.identifier)
+        collectionView.register(UINib(nibName: ButtonCell.identifier, bundle: nil), forCellWithReuseIdentifier: ButtonCell.identifier)
+    }
     
 }
 
@@ -56,7 +68,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomSection.identifier) as! CustomSection
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomSectionHeader.identifier) as! CustomSectionHeader
         return headerView
     }
     

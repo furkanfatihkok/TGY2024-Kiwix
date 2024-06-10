@@ -8,24 +8,36 @@
 import Foundation
 
 protocol DetailPresenterProtocol {
-    
+    func viewDidLoad()
+    func backButtonTapped()
 }
 
 final class DetailPresenter {
     
-    private weak var view: DetailViewControllerProtocol?
-    private let interactor: HomeInteractorProtocol
-    private let router: HomeRouter
+    unowned var view: DetailViewControllerProtocol!
+    let interactor: DetailInteractorProtocol
+    let router: DetailRouterProtocol
     
-    init(view: DetailViewControllerProtocol, interactor: HomeInteractorProtocol, router: HomeRouter) {
+    private var word: Word
+    
+    init(view: DetailViewControllerProtocol!, interactor: DetailInteractorProtocol, router: DetailRouterProtocol, word: Word) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.word = word
     }
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
     
+    func viewDidLoad() {
+        view.displayWordDetailsHeader(word: word)
+        view.registerView()
+    }
+    
+    func backButtonTapped() {
+        router.navigateToHomeVC()
+    }
 }
 
 extension DetailPresenter: DetailInteractorOutputProtocol {

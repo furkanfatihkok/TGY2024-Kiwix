@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  RecentsCell.swift
 //  Kiwix
 //
 //  Created by FFK on 7.06.2024.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+final class RecentsCell: UITableViewCell {
     
-    static let identifier = "TableViewCell"
+    static let identifier = "RecentsCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()

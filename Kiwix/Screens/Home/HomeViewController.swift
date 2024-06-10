@@ -20,8 +20,6 @@ protocol HomeViewControllerProtocol: AnyObject {
 
 // TODO: searchbutton klavye üstüne çıkmasını sağla
 // TODO: EmptyView'a bak
-// TODO: DETAY SAYFASINA GEÇİŞ SAĞLA.
-// TODO: Search button' tıklandığına emptTextField ise popup çıkar
 
 final class HomeViewController: BaseViewController {
     
@@ -65,8 +63,8 @@ final class HomeViewController: BaseViewController {
 extension HomeViewController: HomeViewControllerProtocol {
 
     func setupTableView() {
-        tableView.register(UINib(nibName: TableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
-        tableView.separatorStyle = .none //TODO: Storboard'Da yap
+        tableView.register(UINib(nibName: RecentsCell.identifier, bundle: nil), forCellReuseIdentifier: RecentsCell.identifier)
+        tableView.register(UINib(nibName: RecentHeader.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: RecentHeader.identifier)
     }
     
     func reloadData() {
@@ -85,6 +83,7 @@ extension HomeViewController: HomeViewControllerProtocol {
     
     func setSearchTextField() {
         searchTextField.isHidden = false
+        searchTextField.text = ""
     }
     
     func setRearLogo() {
@@ -111,34 +110,29 @@ extension HomeViewController: HomeViewControllerProtocol {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if recentSearches.count <= 5 {
-            return recentSearches.count
-        }
-        return 5
-        //TODO: presenter
+        return min(recentSearches.count,5)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecentsCell.identifier, for: indexPath) as! RecentsCell
         cell.textLabel?.text = recentSearches[indexPath.row]
-        cell.selectionStyle = .none //TODO: Storyboard'da yap
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Recents \(recentSearches.count) "
-        //TODO: dinamik hale getir.
-        //TODO: customHeader oluştur.
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RecentHeader.identifier) as! RecentHeader
+        let count = min(recentSearches.count, 5)
+        headerView.setNumberLabel("\(count)")
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedWord = recentSearches[indexPath.row]
+        presenter.wordSelected(selectedWord)
+        
         let selectedCell = tableView.cellForRow(at: indexPath)
-        
-        selectedCell?.backgroundColor = UIColor(named: "background")
-        
-        if let text = selectedCell?.textLabel {
-            text.textColor = .white
-        }
+        selectedCell?.backgroundColor = .background
+        selectedCell?.textLabel?.textColor = .white
     }
     
 }

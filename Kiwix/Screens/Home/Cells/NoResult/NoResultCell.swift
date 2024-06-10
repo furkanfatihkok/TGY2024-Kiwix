@@ -12,14 +12,18 @@ protocol NoResultCellProtocol: AnyObject{
     func setDescriptionLabel(_ text: String)
 }
 
-class NoResultCell: UIView {
+final class NoResultCell: UIView {
     
     @IBOutlet weak var noResult: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     static let identifier = "NoResultCell"
     
-    private var cellPresenter: NoResultCellPresenterProtocol?
+    private var cellPresenter: NoResultCellPresenterProtocol? {
+        didSet {
+            cellPresenter?.loadNoResult()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,11 +33,6 @@ class NoResultCell: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureNibView()
-    }
-    
-    func configure(with presenter: NoResultCellPresenterProtocol) {
-        self.cellPresenter = presenter
-        self.cellPresenter?.loadDefault()
     }
     
     private func loadViewFromNib() -> UIView? {

@@ -23,7 +23,7 @@ final class HeaderView: UIView {
     @IBOutlet weak var voiceButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
-    var presenter: HeaderViewPresenterProtocol?
+    var presenter: HeaderViewPresenterProtocol!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

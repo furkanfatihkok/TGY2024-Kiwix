@@ -9,22 +9,25 @@ import UIKit
 
 protocol HomePresenterProtocol {
     func viewDidLoad()
+//    func numberOfRowsInSection() -> Int
     func leftButtonAction()
     func rightButtonAction()
     func searchButtonTapped(with word: String)
     func fetchSavedWords()
+    func wordSelected(_ word: String)
 }
 
 final class HomePresenter {
-
+    
     unowned var view: HomeViewControllerProtocol!
     let interactor: HomeInteractorProtocol
     let router: HomeRouterProtocol
-
+    
     private var noResultCellPresenter: NoResultCellPresenterProtocol?
     private var words = [Word]()
+//    private var recentSearches = [String]()
     
-    init(view: HomeViewControllerProtocol!, interactor: HomeInteractorProtocol, router: HomeRouterProtocol) {
+    init(view: HomeViewControllerProtocol, interactor: HomeInteractorProtocol, router: HomeRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -37,6 +40,7 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    
     func viewDidLoad() {
         if let viewController = view as? UIViewController {
             viewController.navigationController?.isNavigationBarHidden = true
@@ -45,6 +49,10 @@ extension HomePresenter: HomePresenterProtocol {
         view.setupTableView()
         fetchSavedWords()
     }
+    
+//    func numberOfRowsInSection() -> Int {
+//        return min(recentSearches.count,5)
+//    }
     
     func leftButtonAction() {
         view.resetToDefault()
@@ -59,11 +67,16 @@ extension HomePresenter: HomePresenterProtocol {
     
     func searchButtonTapped(with word: String) {
         interactor.fetchWords(for: word)
+        view.setSearchTextField()
     }
     
     func fetchSavedWords() {
         let savedWords = getSavedWords()
-        view?.displaySavedWords(savedWords)
+        view.displaySavedWords(savedWords)
+    }
+    
+    func wordSelected(_ word: String) {
+        interactor.fetchWords(for: word)
     }
 }
 
@@ -80,7 +93,9 @@ extension HomePresenter: HomeInteractorOutputProtocol {
                 DispatchQueue.main.async {
                     CoreDataManager.shared.saveWord(word: words.first?.word ?? "")
                     self.fetchSavedWords()
-                    self.router.navigate(to: .detail(words: words))
+                    if let firstWord = words.first {
+                        self.router.navigate(to: .detail(word: firstWord))
+                    }
                 }
             }
         case .failure( _):
