@@ -1,5 +1,5 @@
 //
-//  CustomSectionHeader.swift
+//  WordSectionHeader.swift
 //  Kiwix
 //
 //  Created by FFK on 9.06.2024.
@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol CustomSectionHeaderProtocol: AnyObject {
+protocol WordSectionHeaderProtocol: AnyObject {
     func setNumberLabel(_ text: String)
     func setPartOfSpeechLabel(_ text: String)
 }
 
-final class CustomSectionHeader: UITableViewHeaderFooterView {
+final class WordSectionHeader: UITableViewHeaderFooterView {
 
-    static let identifier = "CustomSectionHeader"
+    static let identifier = "WordSectionHeader"
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var partOfSpeechLabel: UILabel!
 
 }
 
-extension CustomSectionHeader: CustomSectionHeaderProtocol {
+extension WordSectionHeader: WordSectionHeaderProtocol {
     
     func setNumberLabel(_ text: String) {
         numberLabel.text = text

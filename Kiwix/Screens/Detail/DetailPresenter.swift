@@ -8,12 +8,12 @@
 import Foundation
 
 protocol DetailPresenterProtocol {
-    func viewDidLoad()
+    func viewDidLoad(_ synonym: String)
     func backButtonTapped()
     func numberOfSections() -> Int
     func numberOfRows(in section: Int) -> Int
-    func sectionHeader(for section: Int) -> Meanings?
     func definition(at indexPath: IndexPath) -> Definition?
+    func sectionHeader(for section: Int) -> Meanings?
 }
 
 final class DetailPresenter {
@@ -35,9 +35,10 @@ final class DetailPresenter {
 
 extension DetailPresenter: DetailPresenterProtocol {
     
-    func viewDidLoad() {
+    func viewDidLoad(_ synonym: String) {
         view.displayWordDetailsHeader(word: word)
         view.registerView()
+        interactor.fetchSynonym(for: synonym)
     }
     
     func backButtonTapped() {
@@ -52,16 +53,29 @@ extension DetailPresenter: DetailPresenterProtocol {
         word.meanings?[section].definitions?.count ?? 0
     }
     
-    func sectionHeader(for section: Int) -> Meanings? {
-        word.meanings?[section]
-    }
-    
     func definition(at indexPath: IndexPath) -> Definition? {
         word.meanings?[indexPath.section].definitions?[indexPath.row]
+    }
+    
+    func sectionHeader(for section: Int) -> Meanings? {
+        word.meanings?[section]
     }
     
 }
 
 extension DetailPresenter: DetailInteractorOutputProtocol {
     
+    func fetchSynonymOutput(result: SynonymResult) {
+        switch result {
+        case .success(let synonyms):
+            DispatchQueue.main.sync {
+                let topFiveSynonyms = synonyms.sorted(by: { synonym1, synonym2 in
+                    return synonym1.score > synonym2.score
+                }).prefix(5)
+                self.view.displaySynonyms(Array(topFiveSynonyms))
+            }
+        case .failure(let error):
+            print("Error fetching synonyms: \(error)")
+        }
+    }
 }

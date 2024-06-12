@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Kiwix" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="dbM-fZ-do4" id="lyB-GW-p3A"/>
                 <outlet property="headerView" destination="rmb-7e-GFc" id="q72-Ac-eja"/>
                 <outlet property="tableView" destination="8SK-Kx-myA" id="wWA-Ry-cF7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -58,7 +57,7 @@
                     <color key="backgroundColor" name="background"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8SK-Kx-myA">
-                    <rect key="frame" x="16" y="282" width="361" height="570"/>
+                    <rect key="frame" x="16" y="217" width="361" height="635"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="RQi-WL-aeT"/>
@@ -66,49 +65,31 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmb-7e-GFc" customClass="HeaderView" customModule="Kiwix" customModuleProvider="target">
-                    <rect key="frame" x="16" y="114" width="361" height="107"/>
+                    <rect key="frame" x="16" y="106" width="361" height="107"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dbM-fZ-do4">
-                    <rect key="frame" x="16" y="229" width="361" height="45"/>
-                    <color key="backgroundColor" name="button-background"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Ch-1b-15B">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="7qW-P6-O2U"/>
-                        <outlet property="delegate" destination="-1" id="xim-Ys-6ry"/>
-                    </connections>
-                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="dbM-fZ-do4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="0w3-ap-XDT"/>
-                <constraint firstItem="dbM-fZ-do4" firstAttribute="top" secondItem="rmb-7e-GFc" secondAttribute="bottom" constant="8" id="2mr-RS-fuV"/>
                 <constraint firstItem="S2b-M4-64d" firstAttribute="leading" secondItem="hhB-6f-Zxt" secondAttribute="trailing" id="5jc-eg-kEF"/>
                 <constraint firstItem="0vw-nA-ojD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7rg-dh-2uA"/>
                 <constraint firstItem="lQV-ur-To0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="A2O-n5-LdK"/>
-                <constraint firstItem="8SK-Kx-myA" firstAttribute="top" secondItem="dbM-fZ-do4" secondAttribute="bottom" constant="8" id="EyV-rC-YrU"/>
                 <constraint firstItem="8SK-Kx-myA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="JBB-ZT-DPw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lQV-ur-To0" secondAttribute="trailing" constant="8" id="LNM-eA-8SR"/>
                 <constraint firstItem="rmb-7e-GFc" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.125587" id="N9c-ag-c1q"/>
                 <constraint firstItem="S2b-M4-64d" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PXo-GQ-rah"/>
                 <constraint firstItem="hhB-6f-Zxt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SnU-jM-jL8"/>
-                <constraint firstItem="rmb-7e-GFc" firstAttribute="top" secondItem="0vw-nA-ojD" secondAttribute="bottom" constant="8" id="UmH-tu-EJO"/>
+                <constraint firstItem="rmb-7e-GFc" firstAttribute="top" secondItem="0vw-nA-ojD" secondAttribute="bottom" id="UmH-tu-EJO"/>
                 <constraint firstItem="hhB-6f-Zxt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Uwe-S8-Wg8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8SK-Kx-myA" secondAttribute="trailing" constant="16" id="Wd8-qa-5n5"/>
                 <constraint firstItem="8SK-Kx-myA" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="ZoL-ok-kYA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dbM-fZ-do4" secondAttribute="trailing" constant="16" id="gXH-5n-hDD"/>
                 <constraint firstItem="rmb-7e-GFc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="pVB-Yn-opR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rmb-7e-GFc" secondAttribute="trailing" constant="16" id="pyq-v8-bpD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0vw-nA-ojD" secondAttribute="trailing" id="sUj-Ix-FCl"/>
                 <constraint firstItem="0vw-nA-ojD" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.00234742" id="uq7-4X-BP7"/>
                 <constraint firstItem="0vw-nA-ojD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="45" id="vG3-pS-qnQ"/>
-                <constraint firstItem="dbM-fZ-do4" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0528169" id="vIS-YG-MnM"/>
+                <constraint firstItem="8SK-Kx-myA" firstAttribute="top" secondItem="rmb-7e-GFc" secondAttribute="bottom" constant="4" id="y0j-03-Uje"/>
             </constraints>
             <point key="canvasLocation" x="139.69465648854961" y="19.718309859154932"/>
         </view>
@@ -119,9 +100,6 @@
         <image name="rear-logo" width="208" height="76"/>
         <namedColor name="background">
             <color red="1" green="0.63921568627450975" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="button-background">
-            <color red="1" green="0.97254901960784312" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

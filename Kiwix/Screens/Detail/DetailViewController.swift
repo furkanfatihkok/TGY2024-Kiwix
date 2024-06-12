@@ -10,27 +10,40 @@ import UIKit
 protocol DetailViewControllerProtocol: AnyObject {
     func displayWordDetailsHeader(word: Word)
     func registerView()
+    func displaySynonyms(_ synonyms: [Synonym])
 }
 
-//TODO: wordCell labelım dğzenle 
-//TODO: headerView PHOTETİC boş gelme durumda hidden yap.
+//TODO: celler arası boşluğu dinamikleştir.
 
 final class DetailViewController: UIViewController {
     
     @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: DetailPresenterProtocol?
+    var word: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        presenter?.viewDidLoad(word ?? "")
+        setupHeaderView()
+        setupFooterView()
     }
     
     @IBAction func backButton(_ sender: UIButton) {
         presenter?.backButtonTapped()
     }
+    
+    private func setupHeaderView() {
+        let buttonView = ButtonCell(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        tableView.tableHeaderView = buttonView
+    }
+    
+    private func setupFooterView() {
+        let footerView = FooterView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100))
+        tableView.tableFooterView = footerView
+    }
+
 }
 
 //MARK: - DetailViewProtocol
@@ -47,10 +60,17 @@ extension DetailViewController: DetailViewControllerProtocol {
     
     func registerView() {
         tableView.register(UINib(nibName: WordCell.identifier, bundle: nil), forCellReuseIdentifier: WordCell.identifier)
-        tableView.register(UINib(nibName: CustomSectionHeader.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: CustomSectionHeader.identifier)
-        collectionView.register(UINib(nibName: ButtonCell.identifier, bundle: nil), forCellWithReuseIdentifier: ButtonCell.identifier)
+        tableView.register(UINib(nibName: WordSectionHeader.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: WordSectionHeader.identifier)
     }
     
+    func displaySynonyms(_ synonyms: [Synonym]) {
+        guard let footerView = tableView.tableFooterView as? FooterView else { return }
+        
+        let synonymLabels = [footerView.synonymOne, footerView.synonymTwo, footerView.synonymThree, footerView.synonymFour, footerView.synonymFive]
+        for (index, synonym) in synonyms.prefix(5).enumerated() {
+            synonymLabels[index]?.text = synonym.word
+        }
+    }
 }
 
 //MARK: - UITableViewDelegate & UITableViewDataSoure
@@ -69,7 +89,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: WordCell.identifier, for: indexPath) as! WordCell
         
         if let definition = presenter?.definition(at: indexPath) {
-            print("Definition at \(indexPath): \(definition)")
             let presenter = WordCellPresenter(view: cell, definition: definition)
             cell.configure(with: presenter)
         } else {
@@ -79,7 +98,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomSectionHeader.identifier) as! CustomSectionHeader
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: WordSectionHeader.identifier) as! WordSectionHeader
         if let meaning = presenter?.sectionHeader(for: section) {
             headerView.setNumberLabel("\(section + 1)")
             headerView.setPartOfSpeechLabel(meaning.partOfSpeech ?? "")
@@ -90,22 +109,12 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-}
-
-// MARK: - UICollectionViewDelegate & UICollectionViewDataSource
-
-extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCell.identifier, for: indexPath) as! ButtonCell
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
-    }
+    //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return 120 // Tahmini yükseklik
+    //    }
 }

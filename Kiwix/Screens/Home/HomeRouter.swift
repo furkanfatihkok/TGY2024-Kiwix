@@ -37,6 +37,7 @@ extension HomeRouter: HomeRouterProtocol {
         switch route {
         case .detail(let word):
             let detailVC = DetailRouter.createModule(with: word)
+            detailVC.word = word.word
             viewController?.navigationController?.pushViewController(detailVC, animated: true)
         }
     }

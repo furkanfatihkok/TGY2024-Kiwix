@@ -13,9 +13,9 @@ protocol CustomSectionHeaderPresenterProtocol {
 
 final class CustomSectionHeaderPresenter {
     
-    weak var view: CustomSectionHeaderProtocol!
+    weak var view: WordSectionHeader!
     
-    init(view: CustomSectionHeaderProtocol) {
+    init(view: WordSectionHeader) {
         self.view = view
     }
 }

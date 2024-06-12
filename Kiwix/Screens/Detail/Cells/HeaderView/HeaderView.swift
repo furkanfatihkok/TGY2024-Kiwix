@@ -16,8 +16,6 @@ protocol HeaderViewProtocol: AnyObject {
 
 final class HeaderView: UIView {
     
-    static let identifier = "HeaderView"
-    
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var phonteticLabel: UILabel!
     @IBOutlet weak var voiceButton: UIButton!

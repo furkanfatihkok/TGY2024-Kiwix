@@ -27,6 +27,13 @@ final class WordCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        definationLabel.preferredMaxLayoutWidth = definationLabel.frame.width
+//        exampleLabel.preferredMaxLayoutWidth = exampleLabel.frame.width
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

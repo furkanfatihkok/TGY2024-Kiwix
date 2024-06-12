@@ -103,7 +103,6 @@ extension HomeViewController: HomeViewControllerProtocol {
         recentSearches = words
         reloadData()
     }
-    
 }
 
 //MARK: - TableView Delegate & DataSource

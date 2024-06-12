@@ -48,7 +48,6 @@ extension HomePresenter: HomePresenterProtocol {
         noResultCellPresenter?.loadDefault()
         view.setupTableView()
         fetchSavedWords()
-
     }
     
 //    func numberOfRowsInSection() -> Int {
