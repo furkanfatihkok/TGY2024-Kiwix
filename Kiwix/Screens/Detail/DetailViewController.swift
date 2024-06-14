@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFAudio
 
 protocol DetailViewControllerProtocol: AnyObject {
     func registerView()
@@ -18,28 +17,28 @@ protocol DetailViewControllerProtocol: AnyObject {
     func updateFooterViewVisibility(_ isVisible: Bool)
 }
 
-// TODO: celler arası boşluğu dinamikleştir.
-
 final class DetailViewController: UIViewController {
     
     @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var backButton: UIButton!
     
     var presenter: DetailPresenterProtocol?
     var word: String?
     var phonetics: [Phonetics]?
     var filteredMeanings: [Meanings]?
-    var headerViewPresenter: HeaderViewPresenterProtocol? // TODO
-    var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad(word ?? "")
-        headerViewPresenter = HeaderViewPresenter(view: headerView, audioPlayer: audioPlayer, phonetics: phonetics?.first)
-        headerView.presenter = headerViewPresenter
+        setupHeaderPresenter()
     }
     
+    private func setupHeaderPresenter() {
+        if let phonetics = phonetics?.first {
+            let headerViewPresenter = HeaderViewPresenter(view: headerView, phonetics: phonetics)
+            headerView.headerPresenter = headerViewPresenter
+        }
+    }
     @IBAction func backButton(_ sender: UIButton) {
         presenter?.backButtonTapped()
     }
@@ -84,9 +83,9 @@ extension DetailViewController: DetailViewControllerProtocol {
     }
     
     func setupHeaderView() {
-        let headerView = ButtonCell(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        let headerView = ButtonView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
         
-        let buttonCellPresenter = ButtonCellPresenter()
+        let buttonCellPresenter = ButtonViewPresenter()
         buttonCellPresenter.detailPresenter = presenter
         headerView.presenter = buttonCellPresenter
         

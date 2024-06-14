@@ -20,6 +20,7 @@ protocol HomeViewControllerProtocol: AnyObject {
 }
 
 // TODO: EmptyView'a bak
+// TODO: search button basınca textfiled açılsın.
 
 final class HomeViewController: UIViewController {
     
@@ -185,5 +186,9 @@ extension HomeViewController: UITextFieldDelegate {
             return
         }
         presenter.searchButtonTapped(with: searchText)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
     }
 }

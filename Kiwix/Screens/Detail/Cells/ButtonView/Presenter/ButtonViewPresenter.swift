@@ -7,27 +7,26 @@
 
 import Foundation
 
-protocol ButtonCellPresenterProtocol {
+protocol ButtonViewPresenterProtocol {
     func cancelButtonPressed()
     func nounButtonPressed()
     func verbButtonPressed()
     func adjectiveButtonPressed()
 }
 
-final class ButtonCellPresenter {
+final class ButtonViewPresenter {
     
     var detailPresenter: DetailPresenterProtocol?
     
 }
 
-extension ButtonCellPresenter: ButtonCellPresenterProtocol {
+extension ButtonViewPresenter: ButtonViewPresenterProtocol {
     
     func cancelButtonPressed() {
         detailPresenter?.cancelButtonPressed()
     }
     
     func nounButtonPressed() {
-        
         detailPresenter?.nounButtonPressed()
     }
     

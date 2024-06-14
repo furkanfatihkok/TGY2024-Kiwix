@@ -10,17 +10,17 @@ import AVFoundation
 
 protocol HeaderViewPresenterProtocol {
     func playButtonTapped()
+    func load()
 }
 
 final class HeaderViewPresenter {
     
-    weak var view: HeaderViewProtocol!
+    weak var view: HeaderViewProtocol?
     var audioPlayer: AVAudioPlayer?
     var phonetics: Phonetics?
     
-    init(view: HeaderViewProtocol!, audioPlayer: AVAudioPlayer?, phonetics: Phonetics? ) {
+    init(view: HeaderViewProtocol, phonetics: Phonetics? ) {
         self.view = view
-        self.audioPlayer = audioPlayer
         self.phonetics = phonetics
     }
 }
@@ -46,4 +46,17 @@ extension HeaderViewPresenter: HeaderViewPresenterProtocol {
         }
     }
     
+    func load() {
+        if let phonetics = phonetics, let audioUrlString = phonetics.audio, URL(string: audioUrlString) != nil {
+            view?.setVoiceButton(false, UIImage(systemName: "speaker.wave.3.fill") ?? UIImage())
+            if let playImage = UIImage(systemName: "play.fill") {
+                view?.setPlayButton(playImage)
+            }
+        } else {
+            view?.setVoiceButton(true, UIImage())
+            if let noAudioImage = UIImage(systemName: "play.slash") {
+                view?.setPlayButton(noAudioImage)
+            }
+        }
+    }
 }

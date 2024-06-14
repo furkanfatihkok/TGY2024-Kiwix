@@ -88,6 +88,7 @@ extension DetailPresenter: DetailPresenterProtocol {
     func adjectiveButtonPressed() {
         let filteredMeanings = allMeanings?.filter { $0.partOfSpeech == "adjective" }
         view?.displayFilteredMeanings(filteredMeanings)
+
     }
     
     func displayAllMeanings() {

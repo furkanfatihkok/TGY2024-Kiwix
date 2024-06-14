@@ -17,10 +17,12 @@ final class OnboardingViewController: UIViewController, OnboardingViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "OnboardingViewController"
     }
 
     @IBAction func getStartedButton(_ sender: UIButton) {
         presenter?.getStarted()
+        
     }
 }
 

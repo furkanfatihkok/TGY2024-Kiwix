@@ -32,8 +32,8 @@
 		0206BED02C11F8F400381186 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0206BECF2C11F8F400381186 /* EmptyView.xib */; };
 		020828DC2C148C33002FC12E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020828DB2C148C33002FC12E /* UIViewController.swift */; };
 		021CF2252C11255500A884DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CF2242C11255500A884DE /* NetworkManager.swift */; };
-		021FF48C2C19B1B200506A69 /* ButtonCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021FF48B2C19B1B200506A69 /* ButtonCellPresenter.swift */; };
-		021FF48E2C19B4E700506A69 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021FF48D2C19B4E700506A69 /* ButtonCell.xib */; };
+		021FF48C2C19B1B200506A69 /* ButtonViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021FF48B2C19B1B200506A69 /* ButtonViewPresenter.swift */; };
+		021FF48E2C19B4E700506A69 /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021FF48D2C19B4E700506A69 /* ButtonView.xib */; };
 		021FF4912C19BA8100506A69 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021FF4902C19BA8100506A69 /* FooterView.swift */; };
 		021FF4932C19BA8A00506A69 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021FF4922C19BA8A00506A69 /* FooterView.xib */; };
 		02372A802C13232100A91977 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02372A7F2C13232100A91977 /* CoreDataManager.swift */; };
@@ -50,7 +50,7 @@
 		0298D4182C15E61A00A054A8 /* WordSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D4172C15E61A00A054A8 /* WordSectionHeader.xib */; };
 		0298D41B2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41A2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift */; };
 		0298D41D2C15F1A100A054A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0298D41C2C15F1A100A054A8 /* HeaderView.xib */; };
-		0298D4212C16698800A054A8 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41F2C16698800A054A8 /* ButtonCell.swift */; };
+		0298D4212C16698800A054A8 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298D41F2C16698800A054A8 /* ButtonView.swift */; };
 		02A581FE2C11AE43004E06F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A581FD2C11AE43004E06F1 /* ViewController.swift */; };
 		02A582062C11C3AC004E06F1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A582042C11C3AC004E06F1 /* OnboardingViewController.swift */; };
 		02A582072C11C3AC004E06F1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A582052C11C3AC004E06F1 /* OnboardingViewController.xib */; };
@@ -62,6 +62,11 @@
 		02A5822B2C11D216004E06F1 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A5821D2C11D216004E06F1 /* Roboto-Medium.ttf */; };
 		02A5822D2C11D216004E06F1 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A5821F2C11D216004E06F1 /* Roboto-Regular.ttf */; };
 		02B1EDB92C1C44EE00A05BD5 /* EmptyViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDB82C1C44EE00A05BD5 /* EmptyViewPresenter.swift */; };
+		02B1EDBC2C1C73AD00A05BD5 /* MockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDBB2C1C73AD00A05BD5 /* MockDetailViewController.swift */; };
+		02B1EDBE2C1C749100A05BD5 /* MockDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDBD2C1C749100A05BD5 /* MockDetailInteractor.swift */; };
+		02B1EDC02C1C7D4200A05BD5 /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDBF2C1C7D4200A05BD5 /* DetailPresenterTests.swift */; };
+		02B1EDC22C1C7DC700A05BD5 /* MockDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDC12C1C7DC700A05BD5 /* MockDetailRouter.swift */; };
+		02B1EDC42C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDC32C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,8 +116,8 @@
 		0206BECF2C11F8F400381186 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		020828DB2C148C33002FC12E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		021CF2242C11255500A884DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		021FF48B2C19B1B200506A69 /* ButtonCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellPresenter.swift; sourceTree = "<group>"; };
-		021FF48D2C19B4E700506A69 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		021FF48B2C19B1B200506A69 /* ButtonViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewPresenter.swift; sourceTree = "<group>"; };
+		021FF48D2C19B4E700506A69 /* ButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
 		021FF4902C19BA8100506A69 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		021FF4922C19BA8A00506A69 /* FooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
 		02372A7F2C13232100A91977 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -129,7 +134,7 @@
 		0298D4172C15E61A00A054A8 /* WordSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordSectionHeader.xib; sourceTree = "<group>"; };
 		0298D41A2C15E7A900A054A8 /* CustomSectionHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionHeaderPresenter.swift; sourceTree = "<group>"; };
 		0298D41C2C15F1A100A054A8 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		0298D41F2C16698800A054A8 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		0298D41F2C16698800A054A8 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		02A581FD2C11AE43004E06F1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02A582042C11C3AC004E06F1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		02A582052C11C3AC004E06F1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
@@ -141,6 +146,11 @@
 		02A5821D2C11D216004E06F1 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		02A5821F2C11D216004E06F1 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		02B1EDB82C1C44EE00A05BD5 /* EmptyViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewPresenter.swift; sourceTree = "<group>"; };
+		02B1EDBB2C1C73AD00A05BD5 /* MockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailViewController.swift; sourceTree = "<group>"; };
+		02B1EDBD2C1C749100A05BD5 /* MockDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailInteractor.swift; sourceTree = "<group>"; };
+		02B1EDBF2C1C7D4200A05BD5 /* DetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
+		02B1EDC12C1C7DC700A05BD5 /* MockDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailRouter.swift; sourceTree = "<group>"; };
+		02B1EDC32C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +216,7 @@
 		020061402C11141A00575E13 /* KiwixTests */ = {
 			isa = PBXGroup;
 			children = (
+				02B1EDBA2C1C739300A05BD5 /* Mock */,
 				020061412C11141A00575E13 /* KiwixTests.swift */,
 			);
 			path = KiwixTests;
@@ -214,6 +225,7 @@
 		0200614A2C11141B00575E13 /* KiwixUITests */ = {
 			isa = PBXGroup;
 			children = (
+				02B1EDC32C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift */,
 				0200614B2C11141B00575E13 /* KiwixUITests.swift */,
 				0200614D2C11141B00575E13 /* KiwixUITestsLaunchTests.swift */,
 			);
@@ -335,7 +347,7 @@
 		021FF48A2C19B19F00506A69 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				021FF48B2C19B1B200506A69 /* ButtonCellPresenter.swift */,
+				021FF48B2C19B1B200506A69 /* ButtonViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -362,7 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				020828CE2C1481AE002FC12E /* HeaderView */,
-				0298D41E2C16696000A054A8 /* ButtonCell */,
+				0298D41E2C16696000A054A8 /* ButtonView */,
 				0298D4142C15E2A500A054A8 /* WordSectionHeader */,
 				0298D40C2C15DBF500A054A8 /* WordCell */,
 				021FF48F2C19BA6800506A69 /* FooterView */,
@@ -423,14 +435,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		0298D41E2C16696000A054A8 /* ButtonCell */ = {
+		0298D41E2C16696000A054A8 /* ButtonView */ = {
 			isa = PBXGroup;
 			children = (
-				0298D41F2C16698800A054A8 /* ButtonCell.swift */,
-				021FF48D2C19B4E700506A69 /* ButtonCell.xib */,
+				0298D41F2C16698800A054A8 /* ButtonView.swift */,
+				021FF48D2C19B4E700506A69 /* ButtonView.xib */,
 				021FF48A2C19B19F00506A69 /* Presenter */,
 			);
-			path = ButtonCell;
+			path = ButtonView;
 			sourceTree = "<group>";
 		};
 		02A582032C11C395004E06F1 /* Onboarding */ = {
@@ -471,6 +483,17 @@
 				02B1EDB82C1C44EE00A05BD5 /* EmptyViewPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		02B1EDBA2C1C739300A05BD5 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				02B1EDBB2C1C73AD00A05BD5 /* MockDetailViewController.swift */,
+				02B1EDBD2C1C749100A05BD5 /* MockDetailInteractor.swift */,
+				02B1EDBF2C1C7D4200A05BD5 /* DetailPresenterTests.swift */,
+				02B1EDC12C1C7DC700A05BD5 /* MockDetailRouter.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,7 +620,7 @@
 				02A582072C11C3AC004E06F1 /* OnboardingViewController.xib in Resources */,
 				02620B882C171EA800A506CF /* RecentSection.xib in Resources */,
 				0206BED02C11F8F400381186 /* EmptyView.xib in Resources */,
-				021FF48E2C19B4E700506A69 /* ButtonCell.xib in Resources */,
+				021FF48E2C19B4E700506A69 /* ButtonView.xib in Resources */,
 				02A582232C11D216004E06F1 /* LICENSE.txt in Resources */,
 				0206BEC82C11D57400381186 /* HomeViewController.xib in Resources */,
 			);
@@ -630,7 +653,7 @@
 				0298D4132C15E05100A054A8 /* WordCellPresenter.swift in Sources */,
 				020061282C11141A00575E13 /* AppDelegate.swift in Sources */,
 				02A582132C11CD08004E06F1 /* OnboardingRouter.swift in Sources */,
-				0298D4212C16698800A054A8 /* ButtonCell.swift in Sources */,
+				0298D4212C16698800A054A8 /* ButtonView.swift in Sources */,
 				0200616D2C1114EC00575E13 /* HomeRouter.swift in Sources */,
 				0206BECE2C11F8EC00381186 /* EmptyView.swift in Sources */,
 				020061752C11151000575E13 /* DetailPresenter.swift in Sources */,
@@ -648,7 +671,7 @@
 				021CF2252C11255500A884DE /* NetworkManager.swift in Sources */,
 				02372A802C13232100A91977 /* CoreDataManager.swift in Sources */,
 				0206BEC72C11D57400381186 /* HomeViewController.swift in Sources */,
-				021FF48C2C19B1B200506A69 /* ButtonCellPresenter.swift in Sources */,
+				021FF48C2C19B1B200506A69 /* ButtonViewPresenter.swift in Sources */,
 				0200612A2C11141A00575E13 /* SceneDelegate.swift in Sources */,
 				02620B862C171E9200A506CF /* RecentSection.swift in Sources */,
 				0200617B2C11208F00575E13 /* Synonym.swift in Sources */,
@@ -664,7 +687,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B1EDC22C1C7DC700A05BD5 /* MockDetailRouter.swift in Sources */,
 				020061422C11141A00575E13 /* KiwixTests.swift in Sources */,
+				02B1EDBC2C1C73AD00A05BD5 /* MockDetailViewController.swift in Sources */,
+				02B1EDBE2C1C749100A05BD5 /* MockDetailInteractor.swift in Sources */,
+				02B1EDC02C1C7D4200A05BD5 /* DetailPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +701,7 @@
 			files = (
 				0200614C2C11141B00575E13 /* KiwixUITests.swift in Sources */,
 				0200614E2C11141B00575E13 /* KiwixUITestsLaunchTests.swift in Sources */,
+				02B1EDC42C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

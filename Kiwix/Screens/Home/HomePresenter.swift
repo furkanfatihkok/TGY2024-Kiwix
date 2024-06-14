@@ -91,7 +91,7 @@ extension HomePresenter: HomeInteractorOutputProtocol {
                 }
             }
         case .failure( _): break
-
+            
         }
     }
 }

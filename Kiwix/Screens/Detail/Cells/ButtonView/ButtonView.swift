@@ -7,14 +7,14 @@
 
 import UIKit
 
-final class ButtonCell: UIView {
+final class ButtonView: UIView {
 
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var nounButton: UIButton!
     @IBOutlet weak var verbButton: UIButton!
     @IBOutlet weak var adjectiveButton: UIButton!
     
-    var presenter: ButtonCellPresenterProtocol?
+    var presenter: ButtonViewPresenterProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,18 +40,22 @@ final class ButtonCell: UIView {
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {
         presenter?.cancelButtonPressed()
+        cancelButton.isHidden = true
     }
     
     @IBAction func nounButtonAction(_ sender: UIButton) {
         presenter?.nounButtonPressed()
+        cancelButton.isHidden = false
     }
     
     @IBAction func verbButtonAction(_ sender: UIButton) {
         presenter?.verbButtonPressed()
+        cancelButton.isHidden = false
     }
     
     @IBAction func adjectiveButtonAction(_ sender: UIButton) {
         presenter?.adjectiveButtonPressed()
+        cancelButton.isHidden = false
     }
 }
 
