@@ -17,10 +17,8 @@ protocol HomeViewControllerProtocol: AnyObject {
     func setRearLogo()
     func resetToDefault()
     func setupHeaderView()
+    func setSearchButton()
 }
-
-// TODO: EmptyView'a bak
-// TODO: search button basınca textfiled açılsın.
 
 final class HomeViewController: UIViewController {
     
@@ -52,7 +50,7 @@ final class HomeViewController: UIViewController {
         }
         
         let keyboardHeight = keyboardFrame.height
-        let buttonBottomY = searchButton.frame.origin.y / 2 + 90 + searchButton.frame.size.height
+        let buttonBottomY = searchButton.frame.origin.y - view.frame.height / 5.5  + searchButton.frame.size.height
         
         if buttonBottomY > keyboardHeight {
             animateButtonAboveKeyboard(true, offset: buttonBottomY - keyboardHeight )
@@ -122,6 +120,10 @@ extension HomeViewController: HomeViewControllerProtocol {
     
     func setRearLogo() {
         rearLogo.isHidden = true
+    }
+    
+    func setSearchButton() {
+        searchButton.layer.zPosition = 10
     }
     
     func resetToDefault() {

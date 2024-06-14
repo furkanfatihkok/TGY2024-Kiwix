@@ -28,6 +28,8 @@ final class HeaderViewPresenter {
 extension HeaderViewPresenter: HeaderViewPresenterProtocol {
     
     func playButtonTapped() {
+        print("playButton tapped")
+        
         guard let audioUrlString = phonetics?.audio else {
             print("Audio URL is nil")
             return
@@ -39,7 +41,8 @@ extension HeaderViewPresenter: HeaderViewPresenterProtocol {
         }
         
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
+            let audioData = try Data(contentsOf: audioUrl)
+            audioPlayer = try AVAudioPlayer(data: audioData)
             audioPlayer?.play()
         } catch {
             print("Error initializing audio player: \(error.localizedDescription)")

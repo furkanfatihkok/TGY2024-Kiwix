@@ -67,6 +67,7 @@
 		02B1EDC02C1C7D4200A05BD5 /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDBF2C1C7D4200A05BD5 /* DetailPresenterTests.swift */; };
 		02B1EDC22C1C7DC700A05BD5 /* MockDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDC12C1C7DC700A05BD5 /* MockDetailRouter.swift */; };
 		02B1EDC42C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDC32C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift */; };
+		02B1EDC62C1C985E00A05BD5 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B1EDC52C1C985E00A05BD5 /* Notification.Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		02B1EDBF2C1C7D4200A05BD5 /* DetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
 		02B1EDC12C1C7DC700A05BD5 /* MockDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailRouter.swift; sourceTree = "<group>"; };
 		02B1EDC32C1C7FA300A05BD5 /* OnboardingViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerUITests.swift; sourceTree = "<group>"; };
+		02B1EDC52C1C985E00A05BD5 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				020828DB2C148C33002FC12E /* UIViewController.swift */,
+				02B1EDC52C1C985E00A05BD5 /* Notification.Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				020061752C11151000575E13 /* DetailPresenter.swift in Sources */,
 				02A582062C11C3AC004E06F1 /* OnboardingViewController.swift in Sources */,
 				020061732C11150600575E13 /* DetailInteractor.swift in Sources */,
+				02B1EDC62C1C985E00A05BD5 /* Notification.Name.swift in Sources */,
 				020828DC2C148C33002FC12E /* UIViewController.swift in Sources */,
 				0298D40F2C15DC1F00A054A8 /* WordCell.swift in Sources */,
 				02372A842C13282200A91977 /* RecentsCell.swift in Sources */,

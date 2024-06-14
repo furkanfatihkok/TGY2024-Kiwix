@@ -21,7 +21,7 @@ final class HeaderView: UIView {
     @IBOutlet weak var voiceButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
-    var headerPresenter: HeaderViewPresenterProtocol? 
+    var headerPresenter: HeaderViewPresenterProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,19 +46,15 @@ final class HeaderView: UIView {
         
     }
     
-    func setup(with phonetics: Phonetics) {
-        let headerViewPresenter = HeaderViewPresenter(view: self, phonetics: phonetics)
-        headerPresenter = headerViewPresenter
-        headerPresenter?.load()
-    }
     
     @IBAction func playButtonAction(_ sender: UIButton) {
         headerPresenter?.playButtonTapped()
+        NotificationCenter.default.post(name: .playButtonTapped, object: nil)
     }
 }
 
 extension HeaderView: HeaderViewProtocol {
-
+    
     func setWordLabel(_ word: String) {
         wordLabel.text = word
     }

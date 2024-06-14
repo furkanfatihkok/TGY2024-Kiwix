@@ -44,6 +44,7 @@ extension HomePresenter: HomePresenterProtocol {
         }
         view?.setupTableView()
         view?.setupHeaderView()
+        view?.setSearchButton()
         fetchSavedWords()
     }
     

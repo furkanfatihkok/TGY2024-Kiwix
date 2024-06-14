@@ -19,6 +19,7 @@ protocol DetailPresenterProtocol {
     func verbButtonPressed()
     func adjectiveButtonPressed()
     func displayAllMeanings()
+    func audio() -> Word
 }
 
 final class DetailPresenter {
@@ -93,6 +94,11 @@ extension DetailPresenter: DetailPresenterProtocol {
     
     func displayAllMeanings() {
         view?.displayFilteredMeanings(allMeanings)
+    }
+    
+    func audio() -> Word {
+        
+        return word
     }
     
 }

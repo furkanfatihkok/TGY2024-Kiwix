@@ -59,7 +59,7 @@
                                                 <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
                                             <connections>
-                                                <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="cWa-IJ-jdT"/>
+                                                <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="L3E-jF-ReO"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoX-oJ-9Cb">
@@ -78,7 +78,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-w4-PMH">
-                            <rect key="frame" x="0.0" y="72" width="0.0" height="0.0"/>
+                            <rect key="frame" x="0.0" y="68" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                         <constraint firstAttribute="bottom" secondItem="6cY-Db-NxE" secondAttribute="bottom" id="M7F-Mh-TE5"/>
                         <constraint firstItem="6cY-Db-NxE" firstAttribute="leading" secondItem="Gah-8L-9J3" secondAttribute="leading" id="PKO-W8-83b"/>
                         <constraint firstAttribute="trailing" secondItem="6cY-Db-NxE" secondAttribute="trailing" id="hZR-18-1LA"/>
-                        <constraint firstItem="Lop-w4-PMH" firstAttribute="top" secondItem="Gah-8L-9J3" secondAttribute="top" constant="72" id="nM3-IK-Q90"/>
+                        <constraint firstItem="Lop-w4-PMH" firstAttribute="top" secondItem="Gah-8L-9J3" secondAttribute="top" constant="68" id="nM3-IK-Q90"/>
                     </constraints>
                 </view>
             </subviews>

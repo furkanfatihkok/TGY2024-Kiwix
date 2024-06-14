@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol DetailViewControllerProtocol: AnyObject {
     func registerView()
@@ -25,20 +26,45 @@ final class DetailViewController: UIViewController {
     var presenter: DetailPresenterProtocol?
     var word: String?
     var phonetics: [Phonetics]?
+    var audioPlayer: AVAudioPlayer?
+    var headerPresenter: HeaderViewPresenterProtocol?
+
     var filteredMeanings: [Meanings]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad(word ?? "")
-        setupHeaderPresenter()
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePlayButtonTapped), name: .playButtonTapped, object: nil)
+        
     }
     
-    private func setupHeaderPresenter() {
-        if let phonetics = phonetics?.first {
-            let headerViewPresenter = HeaderViewPresenter(view: headerView, phonetics: phonetics)
-            headerView.headerPresenter = headerViewPresenter
+    @objc private func handlePlayButtonTapped() {
+        // Handle the play button tapped event here
+        let audio = presenter?.audio().phonetics?.first?.audio
+        guard let audioUrlString = audio else {
+            print("Audio URL is nil")
+            return
         }
+        
+        guard let audioUrl = URL(string: audioUrlString) else {
+            print("Invalid audio URL")
+            return
+        }
+        
+        do {
+            let audioData = try Data(contentsOf: audioUrl)
+            audioPlayer = try AVAudioPlayer(data: audioData)
+            audioPlayer?.play()
+        } catch {
+            print("Error initializing audio player: \(error.localizedDescription)")
+        }
+
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .playButtonTapped, object: nil)
+    }
+    
     @IBAction func backButton(_ sender: UIButton) {
         presenter?.backButtonTapped()
     }
