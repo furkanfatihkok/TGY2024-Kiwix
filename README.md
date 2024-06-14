@@ -48,7 +48,7 @@
 - **Minimum iOS Version:** 15.0
 
 ## Architecture
-![Architecture](https://github.com/furkanfatihkok/TGY2024-Kiwix/assets/113316242/eb60e354-ad81-4330-901e-14b920af54d3)
+![Architecture](https://github.com/furkanfatihkok/TGY2024-Kiwix/assets/113316242/77a898e3-0040-4ece-aa0b-ffafb3966596)
 
 ### Unit Tests
 
