@@ -39,7 +39,6 @@ final class DetailViewController: UIViewController {
     }
     
     @objc private func handlePlayButtonTapped() {
-        // Handle the play button tapped event here
         let audio = presenter?.audio().phonetics?.first?.audio
         guard let audioUrlString = audio else {
             print("Audio URL is nil")

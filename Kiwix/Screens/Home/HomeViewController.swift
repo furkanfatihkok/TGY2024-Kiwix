@@ -18,6 +18,7 @@ protocol HomeViewControllerProtocol: AnyObject {
     func resetToDefault()
     func setupHeaderView()
     func setSearchButton()
+    func showAlert(message: String)
 }
 
 final class HomeViewController: UIViewController {
@@ -69,9 +70,17 @@ final class HomeViewController: UIViewController {
         }
     }
     
+     func showAlert(message: String) {
+        let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        guard let searchText = searchTextField.text, !searchText.isEmpty else { return }
+        guard let searchText = searchTextField.text, !searchText.isEmpty else {
+            showAlert(message: "Please enter the correct word")
+            return
+        }
         presenter.searchButtonTapped(with: searchText)
     }
     
