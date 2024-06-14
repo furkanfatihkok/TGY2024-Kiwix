@@ -10,8 +10,6 @@ import UIKit
 protocol HeaderViewProtocol: AnyObject {
     func setWordLabel(_ word: String)
     func setPhonteticLabel(_ phontetic: String)
-    func setVoiceButton(_ systemName: UIImage)
-    func setPlayButton(_ systemName: UIImage)
 }
 
 final class HeaderView: UIView {
@@ -21,7 +19,7 @@ final class HeaderView: UIView {
     @IBOutlet weak var voiceButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
-    var presenter: HeaderViewPresenterProtocol!
+    var presenter: HeaderViewPresenterProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,29 +41,22 @@ final class HeaderView: UIView {
         guard let view = loadViewFromNib() else { return }
         view.frame = bounds
         addSubview(view)
+        
     }
     
-    @IBAction func audioButton(_ sender: UIButton) {
-        presenter?.audioButtonTapped()
+    @IBAction func playButton(_ sender: UIButton) {
+        presenter?.playButtonTapped()
     }
 }
 
 extension HeaderView: HeaderViewProtocol {
-    
+
     func setWordLabel(_ word: String) {
         wordLabel.text = word
     }
     
     func setPhonteticLabel(_ phontetic: String) {
         phonteticLabel.text = phontetic
-    }
-    
-    func setVoiceButton(_ systemName: UIImage) {
-        voiceButton.setImage(systemName, for: .normal)
-    }
-    
-    func setPlayButton(_ systemName: UIImage) {
-        playButton.setImage(systemName, for: .normal)
     }
     
 }

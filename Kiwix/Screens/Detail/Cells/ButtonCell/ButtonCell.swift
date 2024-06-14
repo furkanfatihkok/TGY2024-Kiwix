@@ -7,13 +7,6 @@
 
 import UIKit
 
-protocol ButtonCellProtocol: AnyObject {
-//    func setCancelButton(_ imageName: String)
-    func setNounButton(_ imageName: String)
-    func setVerbButton(_ imageName: String)
-    func setAdjectiveButton(_ imageName: String)
-}
-
 final class ButtonCell: UIView {
 
     @IBOutlet weak var cancelButton: UIButton!
@@ -21,7 +14,7 @@ final class ButtonCell: UIView {
     @IBOutlet weak var verbButton: UIButton!
     @IBOutlet weak var adjectiveButton: UIButton!
     
-    var presenter: ButtonCellPresenterProtocol!
+    var presenter: ButtonCellPresenterProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,38 +39,19 @@ final class ButtonCell: UIView {
     }
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {
-        presenter.cancelButtonPressed()
+        presenter?.cancelButtonPressed()
     }
     
     @IBAction func nounButtonAction(_ sender: UIButton) {
-        presenter.nounButtonPressed()
+        presenter?.nounButtonPressed()
     }
     
     @IBAction func verbButtonAction(_ sender: UIButton) {
-        presenter.verbButtonPressed()
+        presenter?.verbButtonPressed()
     }
     
     @IBAction func adjectiveButtonAction(_ sender: UIButton) {
-        presenter.adjectiveButtonPressed()
+        presenter?.adjectiveButtonPressed()
     }
 }
 
-extension ButtonCell: ButtonCellProtocol {
-    
-//    func setCancelButton(_ image: UIImage) {
-//        cancelButton.
-//    }
-    
-    func setNounButton(_ imageName: String) {
-        nounButton.setImage(UIImage(systemName: imageName), for: .normal)
-    }
-    
-    func setVerbButton(_ imageName: String) {
-        verbButton.setImage(UIImage(systemName: imageName), for: .normal)
-    }
-    
-    func setAdjectiveButton(_ imageName: String) {
-        adjectiveButton.setImage(UIImage(systemName: imageName), for: .normal)
-    }
-
-}

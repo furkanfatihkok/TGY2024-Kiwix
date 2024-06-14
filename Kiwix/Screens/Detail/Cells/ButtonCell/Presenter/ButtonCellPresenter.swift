@@ -16,29 +16,27 @@ protocol ButtonCellPresenterProtocol {
 
 final class ButtonCellPresenter {
     
-    weak var view: ButtonCellProtocol!
+    var detailPresenter: DetailPresenterProtocol?
     
-    init(view: ButtonCellProtocol) {
-        self.view = view
-    }
 }
 
 extension ButtonCellPresenter: ButtonCellPresenterProtocol {
     
     func cancelButtonPressed() {
-        print("cancel")
+        detailPresenter?.cancelButtonPressed()
     }
     
     func nounButtonPressed() {
-        print("noun")
+        
+        detailPresenter?.nounButtonPressed()
     }
     
     func verbButtonPressed() {
-        print("verb")
+        detailPresenter?.verbButtonPressed()
     }
     
     func adjectiveButtonPressed() {
-        print("adjective")
+        detailPresenter?.adjectiveButtonPressed()
     }
     
 }

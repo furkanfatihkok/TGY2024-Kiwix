@@ -49,19 +49,9 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="6k0-Kv-4pe" secondAttribute="trailing" id="7Sz-vR-5Wk"/>
-                                            <constraint firstItem="6k0-Kv-4pe" firstAttribute="top" secondItem="dQo-oV-41D" secondAttribute="top" id="R46-mc-5uT"/>
-                                            <constraint firstAttribute="bottom" secondItem="6k0-Kv-4pe" secondAttribute="bottom" id="kaf-9L-PGp"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="CMt-AT-KdO" firstAttribute="top" secondItem="InP-m0-MlK" secondAttribute="top" id="Md7-Hc-Z2h"/>
-                                    <constraint firstAttribute="trailing" secondItem="CMt-AT-KdO" secondAttribute="trailing" id="lbc-dt-lno"/>
-                                    <constraint firstItem="CMt-AT-KdO" firstAttribute="leading" secondItem="InP-m0-MlK" secondAttribute="leading" id="sum-78-4d8"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,6 +67,7 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="CMt-AT-KdO" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.923958" id="1O7-tP-am9"/>
                     <constraint firstItem="yNP-do-snc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="6H5-iI-6ge"/>
                     <constraint firstItem="yNP-do-snc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="iWH-Ky-qnC"/>
                 </constraints>

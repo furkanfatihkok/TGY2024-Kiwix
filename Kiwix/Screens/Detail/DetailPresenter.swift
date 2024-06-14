@@ -14,31 +14,41 @@ protocol DetailPresenterProtocol {
     func numberOfRows(in section: Int) -> Int
     func definition(at indexPath: IndexPath) -> Definition?
     func sectionHeader(for section: Int) -> Meanings?
+    func cancelButtonPressed()
+    func nounButtonPressed()
+    func verbButtonPressed()
+    func adjectiveButtonPressed()
+    func displayAllMeanings()
 }
 
 final class DetailPresenter {
     
-    weak var view: DetailViewControllerProtocol!
+    weak var view: DetailViewControllerProtocol?
     let interactor: DetailInteractorProtocol
     let router: DetailRouterProtocol
     
     private var word: Word
+    private var allMeanings: [Meanings]?
     
-    init(view: DetailViewControllerProtocol!, interactor: DetailInteractorProtocol, router: DetailRouterProtocol, word: Word) {
+    init(view: DetailViewControllerProtocol, interactor: DetailInteractorProtocol, router: DetailRouterProtocol, word: Word) {
         self.view = view
         self.interactor = interactor
         self.router = router
         self.word = word
+        self.allMeanings = word.meanings
     }
     
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
-    
+
     func viewDidLoad(_ synonym: String) {
-        view.displayWordDetailsHeader(word: word)
-        view.registerView()
+        view?.displayWordDetailsHeader(word: word)
+        view?.registerView()
+        view?.setupHeaderView()
+        view?.setupFooterView()
         interactor.fetchSynonym(for: synonym)
+        displayAllMeanings()
     }
     
     func backButtonTapped() {
@@ -46,19 +56,42 @@ extension DetailPresenter: DetailPresenterProtocol {
     }
     
     func numberOfSections() -> Int {
-        word.meanings?.count ?? 0
+        allMeanings?.count ?? 0
     }
     
     func numberOfRows(in section: Int) -> Int {
-        word.meanings?[section].definitions?.count ?? 0
+        allMeanings?[section].definitions?.count ?? 0
     }
     
     func definition(at indexPath: IndexPath) -> Definition? {
-        word.meanings?[indexPath.section].definitions?[indexPath.row]
+        allMeanings?[indexPath.section].definitions?[indexPath.row]
     }
     
     func sectionHeader(for section: Int) -> Meanings? {
-        word.meanings?[section]
+        allMeanings?[section]
+    }
+    
+    func cancelButtonPressed() {
+        view?.displayFilteredMeanings(allMeanings)
+    }
+    
+    func nounButtonPressed() {
+        let filteredMeanings = allMeanings?.filter { $0.partOfSpeech == "noun" }
+        view?.displayFilteredMeanings(filteredMeanings)
+    }
+    
+    func verbButtonPressed() {
+        let filteredMeanings = allMeanings?.filter { $0.partOfSpeech == "verb" }
+        view?.displayFilteredMeanings(filteredMeanings)
+    }
+    
+    func adjectiveButtonPressed() {
+        let filteredMeanings = allMeanings?.filter { $0.partOfSpeech == "adjective" }
+        view?.displayFilteredMeanings(filteredMeanings)
+    }
+    
+    func displayAllMeanings() {
+        view?.displayFilteredMeanings(allMeanings)
     }
     
 }
@@ -72,7 +105,7 @@ extension DetailPresenter: DetailInteractorOutputProtocol {
                 let topFiveSynonyms = synonyms.sorted(by: { synonym1, synonym2 in
                     return synonym1.score > synonym2.score
                 }).prefix(5)
-                self.view.displaySynonyms(Array(topFiveSynonyms))
+                self.view?.displaySynonyms(Array(topFiveSynonyms))
             }
         case .failure(let error):
             print("Error fetching synonyms: \(error)")

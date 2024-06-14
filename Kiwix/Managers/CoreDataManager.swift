@@ -21,8 +21,7 @@ final class CoreDataManager: WordRepositoryProtocol {
     
     func saveWord(word: String) {
         let context = appDelegate.persistentContainer.viewContext
-        
-        // Aynı kelimeyi sil ve yeni kelimeyi ekle
+
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CDWord")
         fetchRequest.predicate = NSPredicate(format: "word == %@", word)
         
@@ -46,7 +45,6 @@ final class CoreDataManager: WordRepositoryProtocol {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CDWord")
         
-        // Kelimeleri en son eklenme tarihine göre sıralıyoruz
         let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         

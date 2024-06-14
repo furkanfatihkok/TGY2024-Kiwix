@@ -20,13 +20,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Kiwix" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-wC-uml">
-                    <rect key="frame" x="26" y="26" width="247" height="35"/>
+                    <rect key="frame" x="16" y="32" width="247" height="35"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="29"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover other words." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc6-rn-cEw">
-                    <rect key="frame" x="28" y="63" width="166.33333333333334" height="21"/>
+                    <rect key="frame" x="16" y="69" width="166.33333333333334" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -36,10 +36,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="KEj-wC-uml" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="CWf-MM-2xF"/>
-                <constraint firstItem="KEj-wC-uml" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="Pd2-dL-CAT"/>
-                <constraint firstItem="Tc6-rn-cEw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="28" id="VCd-rB-32K"/>
-                <constraint firstItem="Tc6-rn-cEw" firstAttribute="top" secondItem="KEj-wC-uml" secondAttribute="bottom" constant="2" id="tZ0-nn-Amv"/>
+                <constraint firstItem="Tc6-rn-cEw" firstAttribute="top" secondItem="KEj-wC-uml" secondAttribute="bottom" constant="2" id="O3B-Uh-9kz"/>
+                <constraint firstItem="Tc6-rn-cEw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Prg-fP-PBj"/>
+                <constraint firstItem="KEj-wC-uml" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="gwT-I3-u9M"/>
+                <constraint firstItem="KEj-wC-uml" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="rNd-wY-4YO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-117.55725190839694" y="-94.366197183098592"/>

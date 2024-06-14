@@ -10,19 +10,18 @@ import UIKit
 protocol HomeViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
+    func displaySavedWords(_ words: [String])
     func setLeftButton()
     func setRightButton()
     func setSearchTextField()
     func setRearLogo()
     func resetToDefault()
-    func displaySavedWords(_ words: [String])
+    func setupHeaderView()
 }
 
-// TODO: searchbutton klavye üstüne çıkmasını sağla
 // TODO: EmptyView'a bak
-// TODO: detailTOhome yaptığımda default'a geri yüklensin.
 
-final class HomeViewController: BaseViewController {
+final class HomeViewController: UIViewController {
     
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -30,19 +29,47 @@ final class HomeViewController: BaseViewController {
     @IBOutlet weak var rearLogo: UIImageView!
     @IBOutlet weak var searchButton: UIButton!
     
-    @IBOutlet weak var noResultCell: NoResultCell!
-    
     @IBOutlet weak var tableView: UITableView!
     
-    var recentSearches: [String] = []
-     
     var presenter: HomePresenterProtocol!
+    var noResultPresenter: EmptyViewPresenterProtocol?
+    var recentSearches: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        let keyboardHeight = keyboardFrame.height
+        let buttonBottomY = searchButton.frame.origin.y / 2 + 90 + searchButton.frame.size.height
+        
+        if buttonBottomY > keyboardHeight {
+            animateButtonAboveKeyboard(true, offset: buttonBottomY - keyboardHeight )
+        }
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        animateButtonAboveKeyboard(false, offset: 0)
+    }
+    
+    private func animateButtonAboveKeyboard(_ above: Bool, offset: CGFloat) {
+        let constant = above ? -offset : 0
+        
+        UIView.animate(withDuration: 0.3) {
+            self.searchButton.transform = CGAffineTransform(translationX: 0, y: constant)
+        }
+    }
+    
     
     @IBAction func searchButton(_ sender: UIButton) {
         guard let searchText = searchTextField.text, !searchText.isEmpty else { return }
@@ -62,16 +89,21 @@ final class HomeViewController: BaseViewController {
 // MARK: - HomeView Protocol
 
 extension HomeViewController: HomeViewControllerProtocol {
-
+    
     func setupTableView() {
         tableView.register(UINib(nibName: RecentsCell.identifier, bundle: nil), forCellReuseIdentifier: RecentsCell.identifier)
-        tableView.register(UINib(nibName: RecentHeader.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: RecentHeader.identifier)
+        tableView.register(UINib(nibName: RecentSection.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: RecentSection.identifier)
     }
     
     func reloadData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func displaySavedWords(_ words: [String]) {
+        recentSearches = words
+        reloadData()
     }
     
     func setLeftButton() {
@@ -97,15 +129,17 @@ extension HomeViewController: HomeViewControllerProtocol {
         searchTextField.isHidden = true
         searchTextField.text = ""
         rearLogo.isHidden = false
+        
     }
     
-    func displaySavedWords(_ words: [String]) {
-        recentSearches = words
-        reloadData()
+    func setupHeaderView() {
+        let headerView = EmptyView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
+        tableView.tableHeaderView = headerView
     }
+    
 }
 
-//MARK: - TableView Delegate & DataSource
+// MARK: - TableView Delegate & DataSource
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -120,7 +154,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RecentHeader.identifier) as! RecentHeader
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: RecentSection.identifier) as! RecentSection
         let count = min(recentSearches.count, 5)
         headerView.setNumberLabel("\(count)")
         return headerView
@@ -141,14 +175,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder() // Klavyeyi kapat
-        performSearch(textField.text) // Arama işlemini başlat
+        textField.resignFirstResponder()
+        performSearch(textField.text)
         return true
     }
     
     func performSearch(_ searchText: String?) {
         guard let searchText = searchText, !searchText.isEmpty else {
-            // Aranan kelime boşsa veya nil ise işlem yapma
             return
         }
         presenter.searchButtonTapped(with: searchText)

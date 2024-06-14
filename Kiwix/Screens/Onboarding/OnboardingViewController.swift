@@ -11,14 +11,12 @@ protocol OnboardingViewControllerProtocol: AnyObject {
     
 }
 
-final class OnboardingViewController: BaseViewController, OnboardingViewControllerProtocol {
+final class OnboardingViewController: UIViewController, OnboardingViewControllerProtocol {
     
     var presenter: OnboardingPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func getStartedButton(_ sender: UIButton) {

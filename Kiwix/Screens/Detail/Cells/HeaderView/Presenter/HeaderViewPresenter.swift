@@ -9,39 +9,41 @@ import UIKit
 import AVFoundation
 
 protocol HeaderViewPresenterProtocol {
-    func audioButtonTapped()
-    func setAudioURL(_ url: URL?)
+    func playButtonTapped()
 }
 
 final class HeaderViewPresenter {
     
     weak var view: HeaderViewProtocol!
-    private var audioPlayer: AVAudioPlayer?
-    private var audioURL: URL?
+    var audioPlayer: AVAudioPlayer?
+    var phonetics: Phonetics?
     
-    init(view: HeaderViewProtocol) {
+    init(view: HeaderViewProtocol!, audioPlayer: AVAudioPlayer?, phonetics: Phonetics? ) {
         self.view = view
-    }
-    
-    private func playAudio() {
-        guard let url = audioURL else { return }
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
-        } catch {
-            print("Error playing audio: \(error.localizedDescription)")
-        }
+        self.audioPlayer = audioPlayer
+        self.phonetics = phonetics
     }
 }
 
 extension HeaderViewPresenter: HeaderViewPresenterProtocol {
-    func audioButtonTapped() {
-        playAudio()
-        view.setVoiceButton(UIImage(systemName: "speaker.fill")!)
+    
+    func playButtonTapped() {
+        guard let audioUrlString = phonetics?.audio else {
+            print("Audio URL is nil")
+            return
+        }
+        
+        guard let audioUrl = URL(string: audioUrlString) else {
+            print("Invalid audio URL")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
+            audioPlayer?.play()
+        } catch {
+            print("Error initializing audio player: \(error.localizedDescription)")
+        }
     }
     
-    func setAudioURL(_ url: URL?) {
-        self.audioURL = url
-    }
 }
-

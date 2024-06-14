@@ -7,23 +7,17 @@
 
 import UIKit
 
-protocol NoResultCellProtocol: AnyObject{
+protocol EmptyViewProtocol: AnyObject{
     func setNoResult(_ text: String)
     func setDescriptionLabel(_ text: String)
 }
 
-final class NoResultCell: UIView {
+final class EmptyView: UIView {
     
     @IBOutlet weak var noResult: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    static let identifier = "NoResultCell"
-    
-    private var cellPresenter: NoResultCellPresenterProtocol? {
-        didSet {
-            cellPresenter?.loadNoResult()
-        }
-    }
+    var presenter: EmptyViewPresenter?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,7 +42,7 @@ final class NoResultCell: UIView {
     }
 }
 
-extension NoResultCell: NoResultCellProtocol {
+extension EmptyView: EmptyViewProtocol {
     
     func setNoResult(_ text: String) {
         noResult.text = text
